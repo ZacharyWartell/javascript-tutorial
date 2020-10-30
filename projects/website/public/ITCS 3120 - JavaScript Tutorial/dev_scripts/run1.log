@@ -6,3 +6,48 @@ https://webpages.uncc.edu/robots.txt:
 2020-10-30 14:35:26 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
 https://licensebuttons.net/robots.txt:
 2020-10-30 14:35:31 ERROR 404: Not Found.
+2020-10-30 14:35:37 URL:https://cci.uncc.edu/computer-science/45/5 [44904/44904] -> "robots.txt" [1]
+2020-10-30 14:35:39 URL:https://developer.mozilla.org/robots.txt [986/986] -> "robots.txt" [1]
+2020-10-30 14:35:42 URL:https://developers.google.com/robots.txt [93/93] -> "robots.txt" [1]
+2020-10-30 14:35:44 URL: https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Hello-World_embed.css 200 OK
+unlink: No such file or directory
+2020-10-30 14:35:46 URL: https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Chapter-Setup-Procedure_embed.css 200 OK
+unlink: No such file or directory
+2020-10-30 14:35:52 URL:https://creativecommons.org/licenses/by-nc-sa/4.0/ [39677] -> "index.html.tmp.tmp" [1]
+2020-10-30 14:35:54 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+2020-10-30 14:35:58 URL: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png 200 OK
+unlink: No such file or directory
+2020-10-30 14:36:07 URL:https://cci.uncc.edu/computer-science/45/5 [44904/44904] -> "index.html.tmp.tmp" [1]
+2020-10-30 14:36:09 URL:https://cci.uncc.edu/robots.txt [2189/2189] -> "robots.txt" [1]
+2020-10-30 14:36:19 URL:https://creativecommons.org/2015/08/05/4-0-bahasa-indonesia-translation-and-a-book/ [93049] -> "index.html.tmp.tmp" [1]
+2020-10-30 14:36:23 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide [215746/215746] -> "Guide.tmp.tmp" [1]
+https://developers.google.com/web/tools/chrome-devtools/javascript/%20:
+Remote file does not exist -- broken link!!!
+2020-10-30 14:36:31 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints [102304/102304] -> "breakpoints.tmp.tmp" [1]
+2020-10-30 14:36:35 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction [258819/258819] -> "Introduction.tmp.tmp" [1]
+2020-10-30 14:36:42 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/snippets [63361/63361] -> "snippets.tmp.tmp" [1]
+2020-10-30 14:36:46 URL:https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance [7171/7171] -> "Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
+2020-10-30 14:36:50 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types [334040/334040] -> "Grammar_and_types.tmp.tmp" [1]
+2020-10-30 14:36:55 URL:https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance [7206/7206] -> "Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
+https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Grading_Criteria:
+Remote file does not exist -- broken link!!!
+2020-10-30 14:36:59 URL: https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/grey-code-box.png 200 OK
+unlink: No such file or directory
+2020-10-30 14:37:03 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling [249282/249282] -> "Control_flow_and_error_handling.tmp.tmp" [1]
+2020-10-30 14:37:08 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration [270408/270408] -> "Loops_and_iteration.tmp.tmp" [1]
+2020-10-30 14:37:12 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions [328551/328551] -> "Functions.tmp.tmp" [1]
+2020-10-30 14:37:17 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators [357307/357307] -> "Expressions_and_Operators.tmp.tmp" [1]
+2020-10-30 14:37:21 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates [259619/259619] -> "Numbers_and_dates.tmp.tmp" [1]
+2020-10-30 14:37:26 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting [236307/236307] -> "Text_formatting.tmp.tmp" [1]
+2020-10-30 14:37:30 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections [310966/310966] -> "Indexed_collections.tmp.tmp" [1]
+2020-10-30 14:37:35 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections [239921/239921] -> "Keyed_collections.tmp.tmp" [1]
+2020-10-30 14:37:39 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects [303304/303304] -> "Working_with_Objects.tmp.tmp" [1]
+2020-10-30 14:37:44 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model [323549/323549] -> "Details_of_the_Object_Model.tmp.tmp" [1]
+Found 2 broken links.
+
+https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/Grading_Criteria
+https://developers.google.com/web/tools/chrome-devtools/javascript/%20
+
+FINISHED --2020-10-30 14:37:44--
+Total wall clock time: 2m 26s
+Downloaded: 27 files, 3.9M in 1.3s (3.10 MB/s)
