@@ -1,0 +1,8 @@
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/zwartell/.wget-hsts'. HSTS will be disabled.
+2020-10-30 14:35:20 URL:https://webpages.uncc.edu/~zwartell/Teaching/ITCS%203120%20-%20JavaScript%20Tutorial/ITCS%203120%20-%20JavaScript%20Tutorial.html [42067/42067] -> "ITCS 3120 - JavaScript Tutorial.html.tmp.tmp" [1]
+https://webpages.uncc.edu/robots.txt:
+2020-10-30 14:35:22 ERROR 404: Not Found.
+2020-10-30 14:35:26 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+https://licensebuttons.net/robots.txt:
+2020-10-30 14:35:31 ERROR 404: Not Found.
