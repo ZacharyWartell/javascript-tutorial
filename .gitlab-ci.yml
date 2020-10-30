@@ -7,7 +7,7 @@ pages:
     - mkdir .public/scripts
     - cp -r Site\ Root/* .public
     - git show --no-patch --no-notes --pretty='%cd' $CI_COMMIT_SHA > REVISION.txt
-    - . ./Site\ Root/scripts/revision.sed
+    - . ./dev_scripts/revision.sed
     - mv .public public
   artifacts:
     paths:
