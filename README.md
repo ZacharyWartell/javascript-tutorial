@@ -1,3 +1,3 @@
-Gradable JavaScript Tutorial completely based on readings from Mozilla Developer Network. 
+Gradable JavaScript tutorial completely based on readings from Mozilla Developer Network. 
 
-WWW: https://zwartell.gitlab.io/???
+WWW: httpshttps://zwartell.gitlab.io/javascript-tutorial/
