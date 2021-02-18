@@ -1,41 +1,28 @@
-2021-02-18 13:11:12 URL:https://zwartell.gitlab.io/javascript-tutorial/index.html [43382/43382] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:14:38 URL:https://zwartell.gitlab.io/javascript-tutorial/index.html [43382/43382] -> "index.html.tmp.tmp" [1]
 https://gitlab.com/users/sign_in:
-2021-02-18 13:11:20 ERROR 503: Service Temporarily Unavailable.
-2021-02-18 13:11:23 URL:https://gitlab.com/robots.txt [2244] -> "robots.txt" [1]
-2021-02-18 13:11:27 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+2021-02-18 13:14:46 ERROR 503: Service Temporarily Unavailable.
+2021-02-18 13:14:48 URL:https://gitlab.com/robots.txt [2244] -> "robots.txt" [1]
+2021-02-18 13:14:51 URL:http://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
 https://licensebuttons.net/robots.txt:
-2021-02-18 13:11:31 ERROR 404: Not Found.
-2021-02-18 13:11:38 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "robots.txt" [1]
-2021-02-18 13:11:40 URL:https://developer.mozilla.org/robots.txt [986/986] -> "robots.txt" [1]
-2021-02-18 13:11:42 URL:https://developers.google.com/robots.txt [93/93] -> "robots.txt" [1]
-2021-02-18 13:11:47 URL:https://zwartell.gitlab.io/javascript-tutorial/Hello-World_embed.css [357/357] -> "Hello-World_embed.css.tmp.tmp" [1]
-2021-02-18 13:11:51 URL:https://zwartell.gitlab.io/javascript-tutorial/Chapter-Setup-Procedure_embed.css [357/357] -> "Chapter-Setup-Procedure_embed.css.tmp.tmp" [1]
-2021-02-18 13:11:55 URL:https://zwartell.gitlab.io/javascript-tutorial/toc.css [640/640] -> "toc.css.tmp.tmp" [1]
-2021-02-18 13:11:57 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/jquery-3.5.1.min.js 200 OK
+2021-02-18 13:14:55 ERROR 404: Not Found.
+2021-02-18 13:14:59 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "robots.txt" [1]
+2021-02-18 13:15:02 URL:https://developer.mozilla.org/robots.txt [986/986] -> "robots.txt" [1]
+2021-02-18 13:15:04 URL:https://developers.google.com/robots.txt [93/93] -> "robots.txt" [1]
+2021-02-18 13:15:08 URL:https://zwartell.gitlab.io/javascript-tutorial/Hello-World_embed.css [357/357] -> "Hello-World_embed.css.tmp.tmp" [1]
+2021-02-18 13:15:13 URL:https://zwartell.gitlab.io/javascript-tutorial/Chapter-Setup-Procedure_embed.css [357/357] -> "Chapter-Setup-Procedure_embed.css.tmp.tmp" [1]
+2021-02-18 13:15:17 URL:https://zwartell.gitlab.io/javascript-tutorial/toc.css [640/640] -> "toc.css.tmp.tmp" [1]
+2021-02-18 13:15:19 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/jquery-3.5.1.min.js 200 OK
 unlink: No such file or directory
-2021-02-18 13:11:59 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/toc.min.js 200 OK
+2021-02-18 13:15:21 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/toc.min.js 200 OK
 unlink: No such file or directory
-2021-02-18 13:12:09 URL:https://gitlab.com/zwartell/javascript-tutorial/-/commits/master [132016] -> "master.tmp.tmp" [1]
-2021-02-18 13:12:13 URL:http://creativecommons.org/licenses/by-nc-sa/4.0/ [39605] -> "index.html.tmp.tmp" [1]
-2021-02-18 13:12:18 URL: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png 200 OK
+2021-02-18 13:15:31 URL:https://gitlab.com/zwartell/javascript-tutorial/-/commits/master [134732] -> "master.tmp.tmp" [1]
+2021-02-18 13:15:35 URL:http://creativecommons.org/licenses/by-nc-sa/4.0/ [39605] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:39 URL: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png 200 OK
 unlink: No such file or directory
-2021-02-18 13:12:24 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "index.html.tmp.tmp" [1]
-2021-02-18 13:12:26 URL:https://cci.uncc.edu/robots.txt [2189/2189] -> "robots.txt" [1]
-2021-02-18 13:12:34 URL:https://creativecommons.org/2015/08/05/4-0-bahasa-indonesia-translation-and-a-book/ [93847] -> "index.html.tmp.tmp" [1]
-2021-02-18 13:12:36 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
-2021-02-18 13:12:40 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide [149536/149536] -> "Guide.tmp.tmp" [1]
-2021-02-18 13:12:45 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/ [109500/109500] -> "index.html.tmp.tmp" [1]
-2021-02-18 13:12:50 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints [103474/103474] -> "breakpoints.tmp.tmp" [1]
-2021-02-18 13:12:54 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction [154034/154034] -> "Introduction.tmp.tmp" [1]
-2021-02-18 13:13:01 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/snippets [64386/64386] -> "snippets.tmp.tmp" [1]
-2021-02-18 13:13:05 URL:https://zwartell.gitlab.io/javascript-tutorial/Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance [7105/7105] -> "Hello-World_player.html@embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
-2021-02-18 13:13:10 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types [262917/262917] -> "Grammar_and_types.tmp.tmp" [1]
-2021-02-18 13:13:14 URL:https://zwartell.gitlab.io/javascript-tutorial/Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance [7140/7140] -> "Chapter-Setup-Procedure_player.html@embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
-2021-02-18 13:13:16 URL: https://zwartell.gitlab.io/javascript-tutorial/grey-code-box.png 200 OK
-unlink: No such file or directory
-2021-02-18 13:13:20 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling [224079/224079] -> "Control_flow_and_error_handling.tmp.tmp" [1]
-2021-02-18 13:13:24 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration [212521/212521] -> "Loops_and_iteration.tmp.tmp" [1]
-2021-02-18 13:13:28 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions [299498/299498] -> "Functions.tmp.tmp" [1]
-2021-02-18 13:13:33 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators [271737/271737] -> "Expressions_and_Operators.tmp.tmp" [1]
-2021-02-18 13:13:37 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates [190582/190582] -> "Numbers_and_dates.tmp.tmp" [1]
-2021-02-18 13:13:41 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting [177663/177663] -> "Text_formatting.tmp.tmp" [1]
+2021-02-18 13:15:46 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:48 URL:https://cci.uncc.edu/robots.txt [2189/2189] -> "robots.txt" [1]
+2021-02-18 13:15:56 URL:https://creativecommons.org/2015/08/05/4-0-bahasa-indonesia-translation-and-a-book/ [93851] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:59 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+2021-02-18 13:16:03 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide [149536/149536] -> "Guide.tmp.tmp" [1]
+2021-02-18 13:16:07 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/ [109500/109500] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:16:12 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints [103474/103474] -> "breakpoints.tmp.tmp" [1]
