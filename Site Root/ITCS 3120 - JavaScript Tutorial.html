@@ -14,147 +14,8 @@
                 document.getElementById(ID).classList.toggle('Code_Example_Expand');
             }
         </script>
-    <style type="text/css">
-
-            /*   Shell Code Output  */
-            .File_Name
-            {
-                font-family: "Courier", monospace;
-            }
-
-            /*   Code Examples (put in 1x1 table) 
-            table.Hide_Code_Example:target
-            {
-                width: 400px;
-                position: relative;
-                margin: 10% auto;
-                padding: 5px 20px 13px 20px;
-                border-radius: 10px;
-                background-color: black;
-            }
-            */
-
-            /*   Code Examples are put in small 1x1 table */
-            table.Code_Example
-            {
-                width: 100%;
-                background-color: black;
-            }
-
-            /*  Code Example Expand style when displaying at full height, instead of with scroll bar
-            */
-            table.Code_Example_Expand > tbody > tr > td > div
-            {
-                width: 100%;
-                height: 100% !important;
-                /* overflow-y: scroll; */
-            }            
-
-            /*  Code Example Table Cell that contains expand button
-            */
-            table.Code_Example > tbody > tr > td:first-child
-            {
-                vertical-align:text-top;
-                text-align : left;
-                width: 25px;
-                background-color: transparent;
-                padding:0;
-                margin:0;
-            }            
-
-            /* Code Example Expand style when displaying code in compact, scrollable mode.               
-            */
-            table.Code_Example > tbody > tr > td > div
-            {
-                width: 100%;
-                overflow-y: scroll;
-            }
-
-            /*   Shell Code Input */
-            code.Shell_Code_Input
-            {
-                font-family: "Courier", monospace;
-                color: white;
-            }
-
-            /*   Shell Code Output  */
-            code.Shell_Code_Output
-            {
-                font-family: "Courier", monospace;
-                color: lightgreen;
-            }
-
-            /*   Shell Code Output  */
-            code.Shell_Code_Prompt
-            {
-                font-family: "Courier", monospace;
-                color: cyan;
-            }
-            
-            /*  User Input Required
-            */
-            .User_Input
-            {
-                background-color : grey;
-                font-style: italic;
-                color : black;
-                text-decoration: underline;
-                text-decoration-style: dotted;
-            }
-
-            span.File_Name
-            {
-                font-family: Courier, monospace;
-            }
-
-            span.Function_Name
-            {
-                font-family: Courier, monospace;
-            }            
-
-            /*   Comments in Shell Code
-            */
-            span.Shell_Code_Comment
-            {
-                font-family: Courier, monospace;
-                text-align: center;
-                color: pink;
-                background-color: grey;
-                font-style: italic;
-                font-weight : bold;
-                margin-bottom: 0;
-                margin-top: 0;
-            }
-
-            /*   Hierarchical List of Instructions
-            */
-            ol.Instruction
-            {
-                font-size: large;
-                list-style-type: decimal;
-            }
-
-            ol.Instruction > li > ol
-            {
-                font-size: large;
-                list-style-type: lower-alpha;
-            }
-
-            ol.Instruction > li > ol > li > ol
-            {
-                font-size: large;
-                list-style-type: lower-roman;
-            }
-
-            span.Grade_Points
-            {
-                font-weight: bold;
-            }
-            h1.Title, h2.Title, h3.Title
-            {
-                text-align : center
-            }
-        </style>
+    <link href="toc.css" rel="stylesheet" type="text/css">
+    <link href="ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
     <link href="Hello-World_embed.css" rel="stylesheet" type="text/css">
     <link href="Chapter-Setup-Procedure_embed.css" rel="stylesheet" type="text/css">
     <link href="toc.css" rel="stylesheet" type="text/css">
@@ -194,42 +55,33 @@
   <body onload="onload_Body();">
     <div id="toc"> </div>
     <div style="margin-left:250px">
-      <h2 style="text-align: center;">ITCS <span data-course-number=""></span>
-        : JavaScript Tutorial<br>
+      <h2 class="nocount Title">ITCS <span data-course-number=""></span> :
+        JavaScript Tutorial<br>
       </h2>
-      <h2 class="Title">Spring 2021</h2>
-      <h3 class="Title">Professor: Zachary Wartell</h3>
-      <h3 class="Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
+      <h2 class="nocount Title">Spring 2021</h2>
+      <h3 class="nocount Title">Professor: Zachary Wartell</h3>
+      <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
             target="_blank">git logs</a>) </sup><br>
       </h3>
-      <section>
-        <hr>
-        <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-              alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
-          <span>"ITCS <span data-course-number=""></span> : JavaScript
-            Tutorial"</span> by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
-            target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
-            Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
-            Commons Attribution-NonCommercial-ShareAlike 4.0 International
-            License</a>.</div>
-        <hr>
-        <h1><br>
-        </h1>
-        <p><br>
-        </p>
-        <p><br>
-        </p>
-        <h1>Compatibility</h1>
-        <p>This page has been tested on Chrome v88.<br>
-        </p>
-        <h1>Objectives</h1>
-        <ol>
-          <li>Learn subset of fundamentals of JavaScript from MDN resources
-            <!-- (as appropriate for this courses later WebGL assignments). -->
-            (as appropriate for this courses later D3 assignments). </li>
-          <li>Learn JavaScript debugging facilities within the Chrome Browser.</li>
-        </ol>
-      </section>
+      <hr>
+      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+            alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
+        <span>"ITCS <span data-course-number=""></span> : JavaScript Tutorial"</span>
+        by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
+          target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
+          Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
+          Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>
+      <hr>
+      <h1 class="nocount">Compatibility</h1>
+      <p>This page has been tested on Chrome v88.<br>
+      </p>
+      <h1>Objectives</h1>
+      <ol>
+        <li>Learn subset of fundamentals of JavaScript from MDN resources
+          <!-- (as appropriate for this courses later WebGL assignments). -->
+          (as appropriate for this courses later D3 assignments). </li>
+        <li>Learn JavaScript debugging facilities within the Chrome Browser.</li>
+      </ol>
       <section>
         <h1 class="toc">Overview</h1>
         This tutorial requires you read a subset of the "chapters" in the MDN
@@ -259,7 +111,8 @@
             </ul>
           </li>
         </ul>
-        <h1></h1>
+      </section>
+      <section>
         <h1 class="toc">Preliminaries</h1>
         <ol class="Instruction">
           <li>Create a new remote repository on the Git server called <span class="File_Name">"ITCS_<span
@@ -299,6 +152,8 @@
               <br>
               Git commit the file with the commit message “initial README.md” </span></li>
         </ol>
+      </section>
+      <section>
         <h1 class="toc">Chrome JavaScript Debugging Tutorial</h1>
         <ul>
           <li>If you have extensive experience using debugging tools
@@ -331,549 +186,651 @@
             </ul>
           </li>
         </ul>
-        <p></p>
-        <h1 class="toc">JavaScript Tutorial</h1>
-        <ul>
-          <li>If you have no JavaScript experience or very weak experience, you
-            should complete the entire tutorial for credit and a grade.</li>
-          <li>If you have strong JavaScript experience, you may skip this
-            tutorial
-            <ul>
-              <li><u>Skipping Instructions</u>:&nbsp; If you do skip the
-                JavaScript tutorial then you <u>must</u> do the following:
-                <ol>
-                  <li>Add to your README.md a brief list and description of your
-                    prior experience with JavaScript.</li>
-                  <li>Git commit the README.md</li>
-                  <li>That is all you have to do.</li>
-                </ol>
-              </li>
-            </ul>
-          </li>
-          <li>If given your general programming experience level you feel it is
-            sufficient to just read the material, without doing the work, you
-            are encouraged to do so, but you will get not be graded for this
-            tutorial.</li>
-        </ul>
-        <h3 class="toc" id="Grading_Criteria"><strong>Grading Criteria<br>
-          </strong></h3>
-        <p><strong><u>Warning</u>:&nbsp;&nbsp; To get credit for this
-            tutorial:&nbsp; You must <u>save</u> the Console log files. one per
-            Chapter (details are below).&nbsp; Also, you must follow the git
-            commit instructions for each chapter.<br>
-          </strong></p>
-        <p>Your Console interactions recorded in your log file must show that
-          you tested 90% of the example code in the listed MDN
-          chapters.&nbsp;&nbsp; Further, regarding what is recorded in the log
-          file:</p>
-        <ul>
-          <li>It is fine (and expected) for some of your coding to generate
-            error messages.</li>
-          <li>It is fine (and expected) for you to make 'mistakes' when learning
-            trying out the code examples :)</li>
-          <li>It is fine (and encouraged) for you to try out extra code
-            --ideally this experience should feel like 'play'
-            <ul>
-              <li>Keep in mind, however, that your submitted log files are an
-                official assignment, so keep any extra code 'professional' </li>
-            </ul>
-          </li>
-        </ul>
-        <h1></h1>
-        <p>The complete grading Rubric in on Canvas.</p>
-        <h3 class="toc">Chapters and Exercises</h3>
-        <p></p>
-        <ul>
-        </ul>
-        <ol class="Instruction">
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction"
-              target="_blank" class="external" rel="noreferrer noopener">"Introduction"
-              <br></a>
-            <ol>
-              <li>Read all, up to the of section "Getting started with
-                JavaScript"<br>
-                <br>
-              </li>
-              <li>Read "Getting started with JavaScript" with the following
-                adjustments:<br>
-                <br>
-                <ul>
-                  <li>Instead of reading sub-sections "The Web Console" and
-                    "Scratchpad":&nbsp;&nbsp;&nbsp; (1)&nbsp; review the prior
-                    tutorial in this course regarding using the Chrome Console
-                    and (2) instead of using Firefox's "Scratchpad" you will use
-                    Chrome's Snippet feature.&nbsp;&nbsp; The Snippet feature is
-                    discussed at this link<span style="color: #0000ee;">: </span><a
-                      href="https://developers.google.com/web/tools/chrome-devtools/snippets">https://developers.google.com/web/tools/chrome-devtools/snippets.<br>
-                      <br>
-                    </a></li>
-                </ul>
-                <a href="https://developers.google.com/web/tools/chrome-devtools/snippets">
-                </a></li>
-              <li>Return to the MDN article and read the "Hello World" example
-                and do the following exercise:
-                <ol>
-                  <li><u>Exercise</u>:&nbsp;&nbsp; "Hello World"<br>
-                    <br>
-                    Use the above Chrome DevTools (Snippet's, etc.) to run the
-                    code in sub-section "Hello world".&nbsp;&nbsp; Specifically
-                    do the following (see also the video below):<br>
-                    <br>
-                    <ol>
-                      <li> create a Snippet for the Hello World code</li>
-                      <li>evaluate that snippet on the Console</li>
-                      <li>save the Console to a log file <span class="File_Name">chapter-1-log.txt</span></li>
-                      <li>verifying the log file using the shell</li>
-                      <li>git commit the Chapter 1 log file with
-                        message:&nbsp;&nbsp; "-exercise chapter-1-log"</li>
-                    </ol>
-                    <br>
-                    The video below illustrates the above instructions:<br>
-                    <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance"
-                      src="Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance"
-                      scrolling="no" allowfullscreen="" frameborder="0"></iframe>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
-              target="_blank" class="external" rel="noreferrer noopener">"Grammar
-              and Types"</a> <br>
-            <br>
-            <ol>
-            </ol>
-            Before reading this chapter perform the following exercise:<br>
-            <br>
-            <ol>
-              <li><u><a name="Chapter-Setup-Procedure" id="Chapter-Setup-Procedure"></a>Exercise</u>:&nbsp;
-                "Chapter Setup Procedure" &nbsp;&nbsp;&nbsp;&nbsp;<u> </u><br>
-                <u> <br>
-                </u>You will be saving at least one Chrome Console log file for
-                <u>each</u> MDN Chapter.&nbsp;&nbsp; <br>
-                <br>
-                If you take a prolonged break in your progress in the middle of
-                a Chapter, save the Chapter's log file into multiple logs files,
-                with names like <span class="File_Name">chapter-2-part-1-log.txt</span>,
-                <span class="File_Name">chapter-2-part-2-log.txt</span>,&nbsp;
-                etc.<br>
-                <br>
-                You should setup for <u>each</u> chapter as follows (see also
-                the video below): <br>
-                <br>
-                <ol>
-                  <li>Open the Chapter's hyperlink in Chrome</li>
-                  <li>In Chrome, open Chrome DevTools window</li>
-                  <li>Open the Sources Panel</li>
-                  <li>Open the Snippet tab</li>
-                  <li>In the Snippet tab create a "New snippet"</li>
-                  <li>Open the Console via "Show console drawer"</li>
-                  <li><strong>IMPORTANT:&nbsp; </strong>In Console make sure
-                    "Preserve Log" is <u>enabled</u>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Without this your saved log file could end up empty!<br>
-                  </li>
-                  <li>Clear the Console log from any console input from the
-                    prior chapters.<br>
-                  </li>
-                </ol>
-                <br>
-                The video below illustrates the above instructions:<br>
-                <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance"
-                  src="Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance"
-                  scrolling="no" allowfullscreen="" frameborder="0"></iframe> </li>
-              <li>Read <strong><u>all</u></strong> of the MDN chapter, with the
-                following exceptions:&nbsp; you may skip reading the
-                sub-sections in the "Skip" list below.&nbsp;&nbsp; <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code that the MDN chapter shows in "grey code boxes" (which look
-                like the example below).&nbsp;&nbsp; Regarding how strict the TA
-                will be when grading your Console log see <a href="#Grading_Criteria">Grading
-                  Criteria</a>.<br>
-                <br>
-                <img src="grey-code-box.png" alt="" title="grey-code-box"><br>
-                <ol>
-                  <li><u>Skip Subsection</u>:&nbsp;&nbsp; Object literals :
-                    Enhanced Object literals<br>
-                    <br>
-                  </li>
-                </ol>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-2-log.txt.<br>
-                  &nbsp;</span>&nbsp; <br>
-                Verify the log file looks correct using the shell.<br>
-                <br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 2"<br>
-                <br>
-                <ol>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-              target="_blank" class="external" rel="noreferrer noopener">"Control
-              flow and error handling"<br>
-              <br>
-            </a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary Chrome DevTool Panels are available.</li>
-              <li>Before starting this chapter's exercise clear the Console log,
-                in case it contains logs from previous chapters (review last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').</li>
-              <li>Read <strong><u>all</u></strong> of this chapter. <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.</a></li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-3-log.txt.&nbsp;</span>&nbsp;
-                <br>Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 3"</li>
-            </ol>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
-              target="_blank" class="external" rel="noreferrer noopener">"Loops
-              and Iteration"<br>
-              <br>
-            </a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary Chrome DevTool Panels are available.<br>
-                <br>
-              </li>
-              <li>Before starting this chapter's exercise clear the Console log,
-                in case it contains logs from previous chapters (review last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').<br>
-                <br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter.&nbsp;&nbsp;
-                <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.<br>
-                  <br>
-                </a> </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-4-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 4"</li>
-            </ol>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
-              target="_blank" class="external" rel="noreferrer noopener"><br>
-            </a> </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
-              target="_blank" class="external" rel="noreferrer noopener">"Functions"</a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary debug Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the console log
-                file in case it contains logs from previous chapters (see last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').<br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter.&nbsp;&nbsp;
-                <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.<br>
-                  <br>
-                </a></li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-5-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 5" </li>
-            </ol>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
-              target="_blank" class="external" rel="noreferrer noopener"> <br>
-            </a>
-            <ul>
-              <li> <i><u>Language Comparison Notes</u>:&nbsp; <br>
-                </i>
-                <ul>
-                  <li><i>Not like Java:&nbsp; <em></em></i>MDN Sections:<i> </i>function
-                    expressions, nested functions, closures.</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"
-              target="_blank" class="external" rel="noreferrer noopener">"Expressions
-              and Operators"</a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary debug Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the console log
-                file in case it contains logs from previous chapters (see last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').<br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter, but you may
-                skip reading the sub-sections in the "Skip" list
-                below.&nbsp;&nbsp; <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes" <br>
-                <br>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-6-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message "-exercise
-                chapter 6"<br>
-                <br>
-              </li>
-            </ol>
-            <ul>
-              <li><i><u>Language Comparison Notes</u>:&nbsp; </i>
-                <ul>
-                  <li><i>Not like Java/C/C++:&nbsp;&nbsp; JavaScript's&nbsp; =<em></em>==
-                      </i>vs<i> ==,&nbsp; compare to Java == vs .equals<br>
-                      <br>
-                    </i> </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates"
-              target="_blank" class="external" rel="noreferrer noopener">"Numbers
-              and Dates" <br>
-            </a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary debug Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the Console log
-                in case it contains logs from previous chapters (see last step
-                in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>: "Chapter
-                  Setup Procedure"</a>').<br>
-                <br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter, but you may
-                skip reading the sub-sections in the "Skip" list
-                below.&nbsp;&nbsp; <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.<br>
-                  <br>
-                </a>
-                <ol>
-                  <li><u> Skip sub-section</u>: Dates<br>
-                    <br>
-                  </li>
-                </ol>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-7-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 7" </li>
-            </ol>
-            <br>
-          </li>
-          <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting"
-              target="_blank" class="external" rel="noreferrer noopener">"Text
-              formatting"</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting"
-              target="_blank" class="external" rel="noreferrer noopener"><br>
-              <br>
-            </a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary debug Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the console log
-                file in case it contains logs from previous chapters (see last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').<br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter, but you may
-                skip reading the sub-sections in the "Skip" list
-                below.&nbsp;&nbsp; <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.<br>
-                  <br>
-                </a>
-                <ol>
-                  <li><u> Skip sub-section</u>: Internationalization<br>
-                    <br>
-                  </li>
-                </ol>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-8-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 8"<br>
-                <br>
-              </li>
-            </ol>
-            <ul>
-              <li><i><u>Language Comparison Notes</u>:&nbsp;</i>
-                <ul>
-                  <li><i>Not exactly like Java:&nbsp;&nbsp;</i> JavaScript's
-                    Typed Arrays. compare to Java FloatBuffer, etc.</li>
-                  <li><i>Not like C/C++:&nbsp;&nbsp;</i>&nbsp; JavaScript's
-                    Typed Arrays.&nbsp;&nbsp; In C/C++ all arrays are basically
-                    "Typed Arrays" (compact &amp; memory efficient and index
-                    calculation efficient).<br>
-                    <br>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections"
-              target="_blank" class="external" rel="noreferrer noopener">"Indexed
-              collections"</a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary debug Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the console log
-                file in case it contains logs from previous chapters (see last
-                step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>').<br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter.&nbsp; <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.</a><br>
-                <br>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-9-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 9"</li>
-            </ol>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections"
-              target="_blank" class="external" rel="noreferrer noopener"> <br>
-            </a> </li>
-          <li>Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections"
-              target="_blank" class="external" rel="noreferrer noopener">"Keyed
-              collections"</a>
-            <ul>
-              <li> Skim this chapter; come back to it as needed later in the
-                semester. &nbsp; You do <u>not</u> have to do enter any of the
-                code on the Console for this chapter.<br>
-                <br>
-              </li>
-            </ul>
-          </li>
-          <li>Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects"
-              target="_blank" class="external" rel="noreferrer noopener">"Working
-              with Objects"<br>
-              <br>
-            </a>
-            <ol>
-              <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
-                  "Chapter Setup Procedure"</a>' in order to make sure the
-                necessary Chrome DevTools Panels are available.<br>
-              </li>
-              <li>Before starting this chapter's exercise clear the Console log
-                in case it contains logs from previous chapters (see last step
-                in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>: "Chapter
-                  Setup Procedure"</a>').<br>
-                <br>
-              </li>
-              <li>Read <strong><u>all</u></strong> of this chapter.&nbsp;&nbsp;
-                <br>
-                <br>
-                While reading the Chapter, you should type in (or cut &amp;
-                paste), either directly into the Console or through the Snippet
-                feature, <strong><u>pretty much all</u></strong> the example
-                code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-                  target="_blank" class="external" rel="noreferrer noopener">.</a><br>
-                <br>
-              </li>
-              <li>Save the Console to a log file <span class="File_Name">chapter-10-log.txt.&nbsp;</span>&nbsp;
-                <br> Verify the log file looks roughly correct using the shell.<br>
-                Git commit this chapters log file(s) with the message
-                "-exercises chapter 10"<br>
-                <br>
-              </li>
-            </ol>
-            <ul>
-              <li><em>Language Comparison Notes</em>:<br>
-                <ul>
-                  <li><u><em><i>Not At All Like Java/C++</i></em></u>:&nbsp;&nbsp;
-                    JS uses 'prototype-based' object orientation
-                    programming.&nbsp;&nbsp; This differs significantly from
-                    Java/C++ which are 'class-based' OOP.&nbsp;&nbsp; If
-                    'prototype-based' OOP is new for you, take some extra time
-                    on this Chapter.<br>
-                    <br>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"
-              target="_blank" class="external" rel="noreferrer noopener">"Details
-              of the object model"&nbsp; <br>
-            </a>
-            <ul>
-              <li>Skip this chapter for this graded tutorial, but come back to
-                it as needed later in the semester.<br>
-              </li>
-              <li>The first classes assignments can be completed <u>without</u>
-                mastering inheritance, but later ones <span style="text-decoration: underline;">will</span>
-                require it. </li>
-            </ul>
-          </li>
-        </ol>
       </section>
       <section>
-        <h1 class="toc"> Academic Integrity</h1>
-        <p>See the course syllabus regarding partial credit and the late penalty
-          policy. &nbsp; <br>
-        </p>
-        <ul>
-          <li>This is an individual assignment.&nbsp;&nbsp; Each student must
-            write and submit their own unique code, logs, answers, etc.</li>
-          <li>However, feel free work together in pairs or groups and discussing
-            the readings and concepts.</li>
-        </ul>
-        <p><br>
-          Cheating in any form is subject to disciplinary action (UNCC Catalog,
-          pages 275-278).<br>
-          <br>
-          The TA will be running the submitted code through various plagiarism
-          detection software such as TurnitIn.</p>
-        <p>If you have questions about whether using a particular resource or
-          collaborative strategy is acceptable or not, email the TA and/or
-          Professor.<br>
-        </p>
+        <h1 class="toc">JavaScript Tutorial</h1>
+        <p>The grading rubric for this tutorial is found inCanvas Assignment <a
+            href="https://uncc.instructure.com/courses/146720/assignments/1155319">T3:
+            Opt. I: JavaScript Tutorial.</a></p>
+        <p>Canvas Assignment <a href="https://uncc.instructure.com/courses/146720/assignments/1171030">T3:
+            JavaScript Tutorial - Overview</a> discusses options available for
+          qualified students who have sufficient JavaScript experience to skip
+          this tutorial by completing the Canvas Survey <a href="https://uncc.instructure.com/courses/146720/quizzes/272440">T3:
+            Opt. II: JavaScript Experience Survey</a>.&nbsp;&nbsp; </p>
+        <!--
+        <ul>          <li>If you have no JavaScript experience or very weak experience, you            should complete the entire tutorial for credit and a grade.</li>          <li>If you have strong JavaScript experience, you may skip this            tutorial            <ul>              <li><u>Skipping Instructions</u>:&nbsp; If you do skip the                JavaScript tutorial then you <u>must</u> do the following:
+                <ol>                  <li>Add to your README.md a brief list and                    description of your prior experience with JavaScript.</li>                  <li>Git commit the README.md</li>                  <li>That is all you have to do.</li>                </ol>              </li>            </ul>
+          </li>          <li>If given your general programming experience level you feel it is            sufficient to just read the material, without doing the work, you            are encouraged to do so, but you will get not be graded for this            tutorial.</li>        </ul>					-->
+        <section>
+          <h2 class="toc" id="Grading_Criteria"><strong>Grading Criteria<br>
+            </strong></h2>
+          <p><strong><u>Warning</u>:&nbsp;&nbsp; To get credit for this
+              tutorial:&nbsp; You must <u>save</u> the Console log files. one
+              per Chapter (details are below).&nbsp; Also, you must follow the
+              git commit instructions for each chapter.<br>
+            </strong></p>
+          <p>Your Console interactions recorded in your log file must show that
+            you tested 90% of the example code in the listed MDN
+            chapters.&nbsp;&nbsp; Further, regarding what is recorded in the log
+            file:</p>
+          <ul>
+            <li>It is fine (and expected) for some of your coding to generate
+              error messages.</li>
+            <li>It is fine (and expected) for you to make 'mistakes' when
+              learning trying out the code examples :)</li>
+            <li>It is fine (and encouraged) for you to try out extra code
+              --ideally this experience should feel like 'play'
+              <ul>
+                <li>Keep in mind, however, that your submitted log files are an
+                  official assignment, so keep any extra code 'professional' </li>
+              </ul>
+            </li>
+          </ul>
+          <p>The complete grading Rubric is in Canvas.</p>
+        </section>
+        <section>
+          <h2 class="toc">Chapters and Exercises</h2>
+          <ul>
+          </ul>
+          <ol class="Instruction">
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction"
+                target="_blank" class="external" rel="noreferrer noopener">"Introduction"
+                <br></a>
+              <ol>
+                <li>Read all, up to the of section "Getting started with
+                  JavaScript"<br>
+                  <br>
+                </li>
+                <li>Read "Getting started with JavaScript" with the following
+                  adjustments:<br>
+                  <br>
+                  <ul>
+                    <li>Instead of reading sub-sections "The Web Console" and
+                      "Scratchpad":&nbsp;&nbsp;&nbsp; (1)&nbsp; review the prior
+                      tutorial in this course regarding using the Chrome Console
+                      and (2) instead of using Firefox's "Scratchpad" you will
+                      use Chrome's Snippet feature.&nbsp;&nbsp; The Snippet
+                      feature is discussed at this link<span style="color: #0000ee;">:
+                      </span><a href="https://developers.google.com/web/tools/chrome-devtools/snippets">https://developers.google.com/web/tools/chrome-devtools/snippets.<br>
+                        <br>
+                      </a></li>
+                  </ul>
+                  <a href="https://developers.google.com/web/tools/chrome-devtools/snippets">
+                  </a></li>
+                <li>Return to the MDN article and read the "Hello World" example
+                  and do the following exercise:
+                  <ol>
+                    <li><u>Exercise</u>:&nbsp;&nbsp; "Hello World"<br>
+                      <br>
+                      Use the above Chrome DevTools (Snippet's, etc.) to run the
+                      code in sub-section "Hello world".&nbsp;&nbsp;
+                      Specifically do the following (see also the video below):<br>
+                      <br>
+                      <ol>
+                        <li> create a Snippet for the Hello World code</li>
+                        <li>evaluate that snippet on the Console</li>
+                        <li>save the Console to a log file <span class="File_Name">chapter-1-log.txt</span></li>
+                        <li>verifying the log file using the shell</li>
+                        <li>git commit the Chapter 1 log file with
+                          message:&nbsp;&nbsp; "-exercise chapter-1-log"</li>
+                      </ol>
+                      <br>
+                      The video below illustrates the above instructions:<br>
+                      <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance"
+                        src="Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance"
+                        scrolling="no" allowfullscreen="" frameborder="0"></iframe>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+                target="_blank" class="external" rel="noreferrer noopener">"Grammar
+                and Types"</a> <br>
+              <br>
+              <ol>
+              </ol>
+              Before reading this chapter perform the following exercise:<br>
+              <br>
+              <ol>
+                <li><u><a name="Chapter-Setup-Procedure" id="Chapter-Setup-Procedure"></a>Exercise</u>:&nbsp;
+                  "Chapter Setup Procedure" &nbsp;&nbsp;&nbsp;&nbsp;<u> </u><br>
+                  <u> <br>
+                  </u>You will be saving at least one Chrome Console log file
+                  for <u>each</u> MDN Chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  If you take a prolonged break in your progress in the middle
+                  of a Chapter, save the Chapter's log file into multiple logs
+                  files, with names like <span class="File_Name">chapter-2-part-1-log.txt</span>,
+                  <span class="File_Name">chapter-2-part-2-log.txt</span>,&nbsp;
+                  etc.<br>
+                  <br>
+                  You should setup for <u>each</u> chapter as follows (see also
+                  the video below): <br>
+                  <br>
+                  <ol>
+                    <li>Open the Chapter's hyperlink in Chrome</li>
+                    <li>In Chrome, open Chrome DevTools window</li>
+                    <li>Open the Sources Panel</li>
+                    <li>Open the Snippet tab</li>
+                    <li>In the Snippet tab create a "New snippet"</li>
+                    <li>Open the Console via "Show console drawer"</li>
+                    <li><strong>IMPORTANT:&nbsp; </strong>In Console make sure
+                      "Preserve Log" is <u>enabled</u>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      Without this your saved log file could end up empty!<br>
+                    </li>
+                    <li>Clear the Console log from any console input from the
+                      prior chapters.<br>
+                    </li>
+                  </ol>
+                  <br>
+                  The video below illustrates the above instructions:<br>
+                  <iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance"
+                    src="Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance"
+                    scrolling="no" allowfullscreen="" frameborder="0"></iframe>
+                </li>
+                <li>Read <strong><u>all</u></strong> of the MDN chapter, with
+                  the following exceptions:&nbsp; you may skip reading the
+                  sub-sections in the "Skip" list below.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code that the MDN chapter shows in "grey code boxes"
+                  (which look like the example below).&nbsp;&nbsp; Regarding how
+                  strict the TA will be when grading your Console log see <a href="#Grading_Criteria">Grading
+                    Criteria</a>.<br>
+                  <br>
+                  <img src="grey-code-box.png" alt="" title="grey-code-box"><br>
+                  <ol>
+                    <li><u>Skip Subsection</u>:&nbsp;&nbsp; Object literals :
+                      Enhanced Object literals<br>
+                      <br>
+                    </li>
+                  </ol>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-2-log.txt.<br>
+                    &nbsp;</span>&nbsp; <br>
+                  Verify the log file looks correct using the shell.<br>
+                  <br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 2"<br>
+                  <br>
+                  <ol>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                target="_blank" class="external" rel="noreferrer noopener">"Control
+                flow and error handling"<br>
+                <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary Chrome DevTool Panels are available.</li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log, in case it contains logs from previous chapters (review
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').</li>
+                <li>Read <strong><u>all</u></strong> of this chapter. <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.</a></li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-3-log.txt.&nbsp;</span>&nbsp;
+                  <br>Verify the log file looks roughly correct using the shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 3"</li>
+              </ol>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+                target="_blank" class="external" rel="noreferrer noopener">"Loops
+                and Iteration"<br>
+                <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary Chrome DevTool Panels are available.<br>
+                  <br>
+                </li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log, in case it contains logs from previous chapters (review
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                  <br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this
+                  chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.<br>
+                    <br>
+                  </a> </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-4-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 4"</li>
+              </ol>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+                target="_blank" class="external" rel="noreferrer noopener"><br>
+              </a> </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+                target="_blank" class="external" rel="noreferrer noopener">"Functions"</a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary debug Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the console
+                  log file in case it contains logs from previous chapters (see
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this
+                  chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.<br>
+                    <br>
+                  </a></li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-5-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 5" </li>
+              </ol>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+                target="_blank" class="external" rel="noreferrer noopener"> <br>
+              </a>
+              <ul>
+                <li> <i><u>Language Comparison Notes</u>:&nbsp; <br>
+                  </i>
+                  <ul>
+                    <li><i>Not like Java:&nbsp; <em></em></i>MDN Sections:<i> </i>function
+                      expressions, nested functions, closures.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"
+                target="_blank" class="external" rel="noreferrer noopener">"Expressions
+                and Operators"</a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary debug Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the console
+                  log file in case it contains logs from previous chapters (see
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this chapter, but you
+                  may skip reading the sub-sections in the "Skip" list
+                  below.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes" <br>
+                  <br>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-6-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercise chapter 6"<br>
+                  <br>
+                </li>
+              </ol>
+              <ul>
+                <li><i><u>Language Comparison Notes</u>:&nbsp; </i>
+                  <ul>
+                    <li><i>Not like Java/C/C++:&nbsp;&nbsp; JavaScript's&nbsp; =<em></em>==
+                        </i>vs<i> ==,&nbsp; compare to Java == vs .equals<br>
+                        <br>
+                      </i> </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates"
+                target="_blank" class="external" rel="noreferrer noopener">"Numbers
+                and Dates" <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary debug Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log in case it contains logs from previous chapters (see last
+                  step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                  <br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this chapter, but you
+                  may skip reading the sub-sections in the "Skip" list
+                  below.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.<br>
+                    <br>
+                  </a>
+                  <ol>
+                    <li><u> Skip sub-section</u>: Dates<br>
+                      <br>
+                    </li>
+                  </ol>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-7-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 7" </li>
+              </ol>
+              <br>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions"
+                target="_blank" class="external" rel="noreferrer noopener">"Regular
+                Experssions"<br>
+              </a>
+              <ul>
+                <li>For the tutorial skip this; just make a mental note, that JS
+                  like nearly all other imperative programming languages has
+                  regex operators builtin.<br>
+                  <br>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting"
+                target="_blank" class="external" rel="noreferrer noopener">"Text
+                formatting"</a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting"
+                target="_blank" class="external" rel="noreferrer noopener"><br>
+                <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary debug Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the console
+                  log file in case it contains logs from previous chapters (see
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this chapter, but you
+                  may skip reading the sub-sections in the "Skip" list
+                  below.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.<br>
+                    <br>
+                  </a>
+                  <ol>
+                    <li><u> Skip sub-section</u>: Internationalization<br>
+                      <br>
+                    </li>
+                  </ol>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-9-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 9"<br>
+                  <br>
+                </li>
+              </ol>
+              <ul>
+                <li><i><u>Language Comparison Notes</u>:&nbsp;</i>
+                  <ul>
+                    <li><i>Not exactly like Java:&nbsp;&nbsp;</i> JavaScript's
+                      Typed Arrays. compare to Java FloatBuffer, etc.</li>
+                    <li><i>Not like C/C++:&nbsp;&nbsp;</i>&nbsp; JavaScript's
+                      Typed Arrays.&nbsp;&nbsp; In C/C++ all arrays are
+                      basically "Typed Arrays" (compact &amp; memory efficient
+                      and index calculation efficient).<br>
+                      <br>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections"
+                target="_blank" class="external" rel="noreferrer noopener">"Indexed
+                collections"</a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary debug Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the console
+                  log file in case it contains logs from previous chapters (see
+                  last step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this chapter.&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.</a><br>
+                  <br>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-10-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 10"</li>
+              </ol>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections"
+                target="_blank" class="external" rel="noreferrer noopener"> <br>
+              </a> </li>
+            <li>MDN Chapter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections"
+                target="_blank" class="external" rel="noreferrer noopener">"Keyed
+                collections"</a>
+              <ul>
+                <li> Skim this chapter; come back to it as needed later in the
+                  semester. &nbsp; You do <u>not</u> have to do enter any of
+                  the code on the Console for this chapter.<br>
+                  <br>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects"
+                target="_blank" class="external" rel="noreferrer noopener">"Working
+                with Objects"<br>
+                <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary Chrome DevTools Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log in case it contains logs from previous chapters (see last
+                  step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                  <br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this
+                  chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.</a><br>
+                  <br>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-12-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 12"<br>
+                  <br>
+                </li>
+              </ol>
+              <ul>
+                <li><em>Language Comparison Notes</em>:<br>
+                  <ul>
+                    <li><u><em>Not At All Like Java/C++</em></u>:&nbsp;&nbsp; JS
+                      uses 'prototype-based' object orientation
+                      programming.&nbsp;&nbsp; This differs significantly from
+                      Java/C++ which are 'class-based' OOP.&nbsp;&nbsp; If
+                      'prototype-based' OOP is new for you, take some extra time
+                      on this Chapter.<br>
+                      <br>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>MDN Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"
+                target="_blank" class="external" rel="noreferrer noopener">"Details
+                of the object model" <br>
+              </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary Chrome DevTools Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log in case it contains logs from previous chapters (see last
+                  step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                  <br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this
+                  chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.</a><br>
+                  <br>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-13-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 13"<br>
+                  <br>
+                </li>
+              </ol>
+              <ul>
+                <li><em>Language Comparison Notes</em>:<br>
+                  <ul>
+                    <li><u><em>Not At All Like Java/C++</em></u>:&nbsp;&nbsp; JS
+                      uses 'prototype-based' object orientation
+                      programming.&nbsp;&nbsp; This differs significantly from
+                      Java/C++ which are 'class-based' OOP.&nbsp;&nbsp; If
+                      'prototype-based' OOP is new for you, take some extra time
+                      on this Chapter.</li>
+                  </ul>
+                </li>
+                <li><em>JavaScript Evolution Notes</em>:</li>
+                <ul>
+                  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"
+                      target="_blank" class="external" rel="noreferrer noopener">"Details
+                      of the object model"</a> chapter covers a lower level
+                    method of create class hierarchies.&nbsp; This method is
+                    typically found in older JS code that a JS programmer should
+                    expect to encounter in their career.&nbsp; Any code that you
+                    will write in this class, however, will use the modern
+                    syntax discussed next.</li>
+                  <br>
+                </ul>
+              </ul>
+            </li>
+            <li>MDN Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+                target="_blank" class="external" rel="noreferrer noopener">"Classes"
+                <br> </a>
+              <ol>
+                <li>If necessary repeat the '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>' in order to make sure the
+                  necessary Chrome DevTools Panels are available.<br>
+                </li>
+                <li>Before starting this chapter's exercise clear the Console
+                  log in case it contains logs from previous chapters (see last
+                  step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').<br>
+                  <br>
+                </li>
+                <li>Read <strong><u>all</u></strong> of this
+                  chapter.&nbsp;&nbsp; <br>
+                  <br>
+                  While reading the Chapter, you should type in (or cut &amp;
+                  paste), either directly into the Console or through the
+                  Snippet feature, <strong><u>pretty much all</u></strong> the
+                  example code in the "grey code boxes"<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                    target="_blank" class="external" rel="noreferrer noopener">.</a><br>
+                  <br>
+                </li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-14-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 14"<br>
+                  <br>
+                </li>
+              </ol>
+              <ul>
+                <li><em>JavaScript Evolution Notes</em>:</li>
+                <ul>
+                  <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+                      target="_blank" class="external" rel="noreferrer noopener">"Classes"</a>
+                    chapter presents the modern syntax for class definition,
+                    inheritance and object creation.&nbsp; Generally, any code
+                    that you will write in this class will use this syntax.</li>
+                  <br>
+                </ul>
+              </ul>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h1 class="toc"> Academic Integrity</h1>
+          <p>See the course syllabus regarding partial credit and the late
+            penalty policy. &nbsp; <br>
+          </p>
+          <ul>
+            <li>This is an individual assignment.&nbsp;&nbsp; Each student must
+              write and submit their own unique code, logs, answers, etc.</li>
+            <li>However, feel free work together in pairs or groups and
+              discussing the readings and concepts.</li>
+          </ul>
+          <p><br>
+            Cheating in any form is subject to disciplinary action (UNCC
+            Catalog, pages 275-278).<br>
+            <br>
+            The TA will be running the submitted code through various plagiarism
+            detection software such as TurnitIn.</p>
+          <p>If you have questions about whether using a particular resource or
+            collaborative strategy is acceptable or not, email the TA and/or
+            Professor.<br>
+          </p>
+        </section>
       </section>
     </div>
   </body>
