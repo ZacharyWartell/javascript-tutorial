@@ -42,6 +42,7 @@
         for(let e of courseNumberElements)
         {
           e.innerText = "5121";
+          e.innerText = "3120";
         }
 
         $('#toc').toc(
@@ -58,7 +59,7 @@
       <h2 class="nocount Title">ITCS <span data-course-number=""></span> :
         JavaScript Tutorial<br>
       </h2>
-      <h2 class="nocount Title">Spring 2021</h2>
+      <h2 class="nocount Title">Fall 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
       <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
             target="_blank">git logs</a>) </sup><br>
@@ -73,13 +74,14 @@
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>
       <hr>
       <h1 class="nocount">Compatibility</h1>
-      <p>This page has been tested on Chrome v88.<br>
+      <p>This page has been tested on Chrome v93.<br>
       </p>
       <h1>Objectives</h1>
       <ol>
         <li>Learn subset of fundamentals of JavaScript from MDN resources
           <!-- (as appropriate for this courses later WebGL assignments). -->
-          (as appropriate for this courses later D3 assignments). </li>
+          <!-- (as appropriate for this courses later D3 assignments).  --> (as
+          appropriate for this courses later WebGL assignments).</li>
         <li>Learn JavaScript debugging facilities within the Chrome Browser.</li>
       </ol>
       <section>
@@ -147,7 +149,7 @@
             </table>
             <br>
           </li>
-          <li>Inside the Tutorial<span class="ProgramName">README.md</span>.<span>
+          <li>Inside the Tutorial <span class="ProgramName">README.md</span>.<span>
               Add your name on the <u>first</u> line of the file.<br>
               <br>
               Git commit the file with the commit message “initial README.md” </span></li>
@@ -158,7 +160,8 @@
         <ul>
           <li>If you have extensive experience using debugging tools
             (breakpoints,watch variables, etc.) in your favorite IDE you may
-            skip this Debugging Tutorial and skip to the "JavaScript Tutorial"</li>
+            skip this Debugging Tutorial and proceed to the "JavaScript
+            Tutorial"</li>
         </ul>
         <p>Otherwise, you are strongly encouraged to read through and do
           Debugging Tutorials.&nbsp; There is no good, automated technological
@@ -189,7 +192,7 @@
       </section>
       <section>
         <h1 class="toc">JavaScript Tutorial</h1>
-        <p>The grading rubric for this tutorial is found inCanvas Assignment <a
+        <p>The grading rubric for this tutorial is found in Canvas Assignment <a
             href="https://uncc.instructure.com/courses/146720/assignments/1155319">T3:
             Opt. I: JavaScript Tutorial.</a></p>
         <p>Canvas Assignment <a href="https://uncc.instructure.com/courses/146720/assignments/1171030">T3:
@@ -811,11 +814,17 @@
                 target="_blank" class="external" rel="noreferrer noopener"><br>
               </a>
               <ol>
-                <li>Reading this chapter is strongly suggested.&nbsp;&nbsp; Just
-                  familiarize yourself with the basics for and keep it inind so
-                  you can come back to it as needed as your develop your JS
-                  experience and skillset.&nbsp;&nbsp; There is nothing to
-                  submit for this part.<br>
+                <li>Before starting this chapter's exercise clear the Console
+                  log in case it contains logs from previous chapters (see last
+                  step in '<a href="#Chapter-Setup-Procedure"><u>Exercise</u>:
+                    "Chapter Setup Procedure"</a>').</li>
+                <li>Reading up to but <u>not</u> including "Abstract equality,
+                  strict equality, and same value in the specification"</li>
+                <li>Save the Console to a log file <span class="File_Name">chapter-15-log.txt.&nbsp;</span>&nbsp;
+                  <br> Verify the log file looks roughly correct using the
+                  shell.<br>
+                  Git commit this chapters log file(s) with the message
+                  "-exercises chapter 14"<br>
                   <br>
                 </li>
               </ol>
@@ -836,6 +845,117 @@
                   <br>
                 </ul>
               </ul>
+            </li>
+            <li>MDN <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"
+                target="_blank">Concurrency model and the event loop</a>
+              <ol>
+                <li>Read all&nbsp; (there is nothing to submit for this chapter)</li>
+              </ol>
+            </li>
+            <li>MDN Advanced Chapter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+                target="_blank">Using Promises</a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+                target="_blank" class="external" rel="noreferrer noopener"><br>
+              </a>
+              <ol>
+                <li>Read up to, but not including, sub section "Chaining after a
+                  catch"</li>
+                <li><u>Exercise</u>: <br>
+                  <ol>
+                    <li> Before starting this chapter's exercise clear the
+                      Console log in case it contains logs from previous
+                      chapters (see last step in 'Exercise: "Chapter Setup
+                      Procedure"').</li>
+                    <li>In Chrome open the page <a href="exercises/using%20promises/using-promises.html">exercises/using
+                        promises/using-promises.html.</a></li>
+                    <li>Open the Chrome Developer Tools.&nbsp; Specifically open
+                      the Console and the "Sources" tab and study the source
+                      code, both the js and html file.</li>
+                    <li>Left clicking the mouse in the light gray canvas read
+                      will draw pixels at the mouse cursor location.&nbsp;&nbsp;
+                      Try it.</li>
+                    <li>Examine the switch statement in file using-promises.js .
+                      Study the differences between how the first <u>four</u>
+                      different versions of the the execution sequence of
+                      "doTask1, doTask2 and doTask3" are implemented (ignore the
+                      fifth switch case statement for now).</li>
+                    <li>Each of these switch case statements is enabled using
+                      one of the4 radio buttons in the graphical UI.</li>
+                    <li><span style="color: #0000ee;"></span>Select <span class="Function_Name">Synchronous</span>
+                      radio button and press the <span class="Function_Name">Run
+                        Tasks 1 to 3</span> button. Attempt to draw in the
+                      canvas with the mouse while watching the Console debug
+                      output for messages about the completion of Task 1 through
+                      3.</li>
+                    <li><span style="color: #0000ee;"></span>Select <span class="Function_Name">Asynchronous</span>
+                      radio button and press the <span class="Function_Name">Run
+                        Tasks 1 to 3</span> button. Attempt to draw in the
+                      canvas with the mouse while watching the Console debug
+                      output for messages about the completion of Task 1 through
+                      3. </li>
+                    <li><span style="color: #0000ee;"></span>Select <span class="Function_Name">Asynchronous
+                        Inline Callbacks</span>radio button and press the <span
+                        class="Function_Name">Run Tasks 1 to 3</span> button.
+                      Attempt to draw in the canvas with the mouse while
+                      watching the Console debug output for messages about the
+                      completion of Task 1 through 3. </li>
+                    <li><span style="color: #0000ee;"></span>Select <span class="Function_Name">Asynchronous
+                        Chained Promise</span> radio button and press the <span
+                        class="Function_Name">Run Tasks 1 to 3</span> button. </li>
+                    <li>Save the Console to a log file <span class="File_Name">chapter-17-log.txt.<br>
+                        &nbsp;</span>&nbsp; <br>
+                      Verify the log file looks correct using the shell.<br>
+                      <br>
+                      Git commit this chapters log file(s) with the message
+                      "-exercises chapter 17"<br>
+                      <br>
+                      <ol>
+                      </ol>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li> MDN: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await">Making
+                asynchronous programming easier with async and await <br>
+              </a>
+              <ol>
+                <li>Read up to but <u>not</u> including "Adding error
+                  handling".</li>
+                <li><u>Exercise</u>:<br>
+                  <ol>
+                    <li>Create new subdirectory called "async-await" inside your
+                      JS_tutorial directory.</li>
+                    <li>cd to async-await</li>
+                    <li>From the JS tutorial page, download and copy the files <span
+                        class="File_Name">using-promises.html</span> and <span
+                        class="File_Name">using-promises.js</span> into this
+                      directory<br>
+                      Git commit this with the message "-Exercise: CH18: copied
+                      initial files"</li>
+                    <li>Verify that you can open the above local files in Chrome
+                      and that they work as they did in Part 17.</li>
+                    <li>In the .js file add a new case to the switch statement ,
+                      case 5.&nbsp;&nbsp; In the .html file, add another radio
+                      button to the GUI to cause execution of this case
+                      statement.</li>
+                    <li>For case 5 create a new version of the the
+                      doTask1,doTask2,doTask3 sequence similar to case 4 (that
+                      used Promises) but not write a new function that uses the
+                      async and await mechanisms to call the doTask1_Async,
+                      doTask2_Async, and doTask3_Async and mimic the same
+                      functionality as the case 4 example with that used
+                      Promises, but instead using the async and await
+                      JavasScript construct.&nbsp;&nbsp; Use the section you
+                      read "Rewriting promise code with async/await" as a guide
+                      towards doing this.</li>
+                    <li>Debug and verify that your new case 5 async-await code
+                      products the same behavior on the Console and in the
+                      drawing program as the case 4 Promise code.</li>
+                    <li> Git commit with the message "-Exercise: CH18:&nbsp;
+                      async-await example</li>
+                  </ol>
+                </li>
+              </ol>
             </li>
           </ol>
         </section>
