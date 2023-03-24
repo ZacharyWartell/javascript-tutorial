@@ -245,7 +245,7 @@ function onload()
                         break;
                     case 2:
                         /*
-                        asynchronous version (Task1,Task2,Task3) sequence.
+                        asynchronous version of the (Task1,Task2,Task3) sequence.
                         Implemented with callbacks,  Callbacks are declared and defined in standard way (see above).
                         */
                         console.log("\nStart - async version 1");
@@ -253,7 +253,7 @@ function onload()
                         break;
                     case 3:
                         /*
-                         asynchronous version (Task1,Task2,Task3) sequence.
+                         asynchronous version of the (Task1,Task2,Task3) sequence.
                          Implemented with callbacks,  But, callbacks are declared and defined inline to shorten code
                          and enhance readability.  (Alternatives syntax that us anonymous functions or arrow functions would shorten this code further).
                          */
@@ -274,7 +274,7 @@ function onload()
                         break;
                     case 4:
                         /*
-                        asynchronous version (Task1,Task2,Task3) sequence.
+                        asynchronous version of the (Task1,Task2,Task3) sequence.
                         Implementation uses Promises using explicit triplet of .then calls.
                         */
                         console.log("\nStart - promise version");
@@ -285,8 +285,8 @@ function onload()
                         break;
                     case 5:
                         /*
-                        asynchronous version (Task1,Task2,Task3) sequence.
-                        Implementation uses Promises using await.
+                        asynchronous version of the (Task1,Task2,Task3) sequence.
+                        Implementation uses Promises using await (see doTaskAll()).
                         */
                         console.log("\nStart - async await version");
                         doTaskAll();
