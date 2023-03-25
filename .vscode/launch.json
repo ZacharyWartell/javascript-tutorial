@@ -4,12 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-        {
+        {            
             "type": "chrome",
+            "preLaunchTask": "tsc: build - tsconfig.json",
             "request": "launch", 
             "name": "Open ITCS 3120 - JavaScript Tutorial.html",
-            "file": "c:\\Users\\zwartell\\Dropbox (UNC Charlotte)\\classes\\wartell tutorials\\Javascript-Tutorial\\Site Root\\ITCS 3120 - JavaScript Tutorial.html"
+            "file": "c:\\Users\\zwartell\\Dropbox (UNC Charlotte)\\classes\\wartell tutorials\\Javascript-Tutorial\\site\\ITCS 3120 - JavaScript Tutorial.html"            
         }
     ]
 }
