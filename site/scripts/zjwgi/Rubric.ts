@@ -22,6 +22,7 @@ enum Category
      OVERVIEW = "OVERVIEW",
      NON_RUBRIC = "NON_RUBRIC",
      REMINDER = "REMINDER",
+     SECTION = "SECTION"
  }
 
  export const CategoryToString =
@@ -61,6 +62,8 @@ function getCategoryFromClass(element, returnNull) {
         return Category.NON_RUBRIC;
     if (element.className.includes("Instruction_Reminder"))
         return Category.REMINDER;        
+    if (element.className.includes("Instruction_Section"))
+        return Category.SECTION;        
 
     if (returnNull)
         return null;
@@ -97,21 +100,30 @@ export class Instruction {
     section : string;
     number : string;
     id : string;
-    points : number;
+    pointFraction : number;   // percentage of parent instruction's total points that this instruction item is worth
+    points : number;    
     marks : number;
     comment : string;
     short : string;
     category : Category;
+    subSteps : Array<Instruction>;
+    parent: Instruction;    
 
-    constructor(s : string = "", n : string = "", sh : string = "", c : Category = Category.GENERAL, points : number=0) {
+    constructor(s : string = "", n : string = "", sh : string = "", c : Category = Category.GENERAL, points : number=0,parent : Instruction = null) 
+    {
         this.section = s;
         this.number = n;
         this.short = sh;
         this.category = c;
         this.id = "Section_"+(s + "_Item_" + n).replace(/\./g,'_');
+        this.pointFraction = 0;
         this.points = points;
         this.marks = 0;
         this.comment="";
+        this.parent = parent;
+        this.subSteps = new Array<Instruction>();
+        if (this.parent !== null)
+            this.parent.subSteps.push(this);        
     }
     assign(jsonObject : Object)
     {
@@ -119,6 +131,20 @@ export class Instruction {
             if (p in this)
                 this[p] = jsonObject[p]
     }
+
+    static replacer(key : any , value : any)
+    {
+        if (key === 'parent')
+            return instructions.instructions.indexOf(value);
+        if (key === 'subSteps')
+        {
+            const subSets : Array<number> = new Array<number>;
+            for (let s of value)
+                subSets.push(instructions.instructions.indexOf(s));
+            return subSets;
+        }
+        return value;
+    }    
 }
 
 export class Instructions
@@ -132,9 +158,8 @@ export class Instructions
         this.optionSets = [];
     }
 
-    push(i)
-    {
-        console.assert (i instanceof Instruction);  // \todo rewrite all in TypeScript
+    push(i : Instruction)
+    {        
         this.instructions.push(i);
     }
 
@@ -142,121 +167,209 @@ export class Instructions
     /**
      * @brief collectInstructions extracts all the instructions embedded in the HTML document <section> "section"
      */
-    private collectInstructions(section : HTMLElement, sectionLabel : string)
+    private collectInstructions(section : HTMLElement, sectionLabel : string, parent : Instruction) 
     {
-        let l1c : number = 1, l2c : number = 1, l3c : number = 1;
+        let l1c = 1, l2c = 1, l3c = 1;
 
-        const temp : string = "self"+Date.now().toString();
+        /*
+        **  Create Instruction for <section> 'section'
+        */
+        const h: HTMLElement = section.querySelector(":scope > h1, :scope > h2, :scope > h3");
+        instructions.push(new Instruction(sectionLabel, "",
+            h.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0, parent));
+        const parent0 = instructions.instructions[instructions.instructions.length - 1];
+        section.id = instructions.instructions[instructions.instructions.length - 1].id;
+
+        const nInstructions = instructions.instructions.length;
+
+        /*
+        **  Collection <li> Instructions in <section> 'section'
+        */
+        const temp: string = "self" + Date.now().toString();
         section.id = temp;
-        let olList = section.querySelectorAll(":scope > ol.Instruction");
+        let olList = section.querySelectorAll(":scope > ol.Instruction, :scope > ul.Instruction");
         //section.id = "";
         if (olList !== null && olList.length !== 0) {
+            /*
+            **  Collection level 1 <li> Instructions
+            */
             for (let ol of olList) {
                 let li1List = ol.querySelectorAll(":scope > li");
-                let category = getCategoryFromClass(ol, false);
+                let category = getCategoryFromClass(<HTMLElement>ol, false);
 
                 l1c = 1;
-                li1List.forEach(
-                    (n1)=>
-                    {
-                        const li1 : HTMLElement = <HTMLElement>n1;
-                        let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
+                const equalFraction1: number = 1.0 / li1List.length * 100;
+                /*
+                **  Collection level 2 <li> Instructions
+                */
+                for (let li1_ of li1List) {
+                    let li1: HTMLElement = <HTMLElement>li1_;
+                    let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
 
-                        const gp : HTMLElement = li1.querySelector(":scope > span.Grade_Points");
-                        let points : number = 0;
-                        if (gp !== null)
-                            points = parseInt(gp.dataset.points);
+                    if (tmp === Category.NON_RUBRIC)
+                        continue;
+                    instructions.push(new Instruction(sectionLabel, itemString(l1c),
+                        li1.innerText.trimStart().slice(0, 10) + " ...", cat, li1.dataset.pointFraction !== undefined ? parseInt(li1.dataset.pointFraction) : equalFraction1, parent0));
+                    const parent1 = instructions.instructions[instructions.instructions.length - 1];
+                    li1.id = instructions.instructions[instructions.instructions.length - 1].id;
 
-                        this.push(new Instruction(sectionLabel, itemString(l1c),
-                            li1.innerText.trimStart().slice(0, 10) + " ...", cat, points));
-                        li1.id = this.instructions[this.instructions.length-1].id;
-                        let ol1 = li1.querySelector(":scope > ol");
-                        if (ol1 !== null) {
-                            let category1 = getCategoryFromClass(ol1, false);
+                    let ol1: HTMLElement = li1.querySelector(":scope > ol");
+                    /*
+                    **  Collection level 3 <li> Instructions
+                    */
+                    if (ol1 !== null) { //&& ol1.length !== 0) {
+                        let category1 = getCategoryFromClass(ol1, false);
 
-                            let li2List = ol1.querySelectorAll(":scope > li"); // only children, no nested descendants
-                            l2c = 1;
-                            for (let nli2 of li2List) {
-                                const li2 : HTMLOListElement = <HTMLOListElement>nli2;
-                                let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
+                        let li2List = ol1.querySelectorAll(":scope > li"); // only children, no nested descendants
+                        l2c = 1;
+                        const equalFraction2: number = 1.0 / li2List.length * 100;
+                        for (let li2_ of li2List) {
+                            const li2: HTMLElement = <HTMLElement>li2_;
+                            let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
 
-                                const gp : HTMLElement = li2.querySelector(":scope > span.Grade_Points");
-                                let points : number = 0;
-                                if (gp !== null)
-                                    points = parseInt(gp.dataset.points);
+                            instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c),
+                                li2.innerText.trimStart().slice(0, 10) + " ...", cat, li2.dataset.pointFraction !== undefined ? parseInt(li2.dataset.pointFraction) : equalFraction2, parent1));
+                            const parent2 = instructions.instructions[instructions.instructions.length - 1];
+                            li2.id = instructions.instructions[instructions.instructions.length - 1].id;
+                            let ol2: HTMLOListElement = <HTMLOListElement>li2.querySelector(":scope > ol");
+                            if (ol2 !== null) {// && ol2.length !== 0) {
+                                /*
+                                **  Collection level 3 <li> Instructions
+                                */
+                                let category2 = getCategoryFromClass(ol2, false);
 
-                                this.instructions.push(new Instruction(sectionLabel, itemString(l1c ,l2c),
-                                    li2.innerText.trimStart().slice(0, 10) + " ...",  cat,points));
-                                li2.id = this.instructions[this.instructions.length-1].id;
-                                let ol2 = li2.querySelector(":scope > ol");
-                                if (ol2 !== null) {
-                                    let category2 = getCategoryFromClass(ol2, false);
+                                let li3List = ol2.querySelectorAll(":scope > li"); // only children, no nested descendants
+                                l3c = 1;
+                                const equalFraction3: number = 1.0 / li3List.length * 100;
+                                for (let li3_ of li3List) {
+                                    const li3: HTMLOListElement = <HTMLOListElement>li3_;
+                                    let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
 
-                                    let li3List = ol2.querySelectorAll(":scope > li"); // only children, no nested descendants
-                                    l3c = 1;
-                                    for (let nli3 of li3List) {
-                                        const li3 : HTMLOListElement = <HTMLOListElement>nli3;
-                                        let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
-                                        const gp : HTMLElement = li3.querySelector(":scope > span.Grade_Points");
-                                        let points : number = 0;
-                                        if (gp !== null)
-                                            points = parseInt(gp.dataset.points);
-
-                                        this.instructions.push(new Instruction(sectionLabel, itemString(l1c , l2c ,l3c),
-                                            li3.innerText.trimStart().slice(0, 10) + " ...", cat,points));
-                                        li3.id = this.instructions[this.instructions.length-1].id;
-                                        l3c++;
-                                    }
+                                    instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c, l3c),
+                                        li3.innerText.trimStart().slice(0, 10) + " ...", cat, li3.dataset.pointFraction !== undefined ? parseInt(li3.dataset.pointFraction) : equalFraction3, parent2));
+                                    li3.id = instructions.instructions[instructions.instructions.length - 1].id;
+                                    l3c++;
                                 }
-                                l2c++;
                             }
+                            l2c++;
                         }
-                        l1c++;
                     }
-                );
+                    l1c++;
+                }
             }
         }
+
+        
+        // remove section if it contains no <ol class=Instruction>
+        if (nInstructions === instructions.instructions.length)
+            instructions.instructions.pop();        
     }
 
     /**
      *
      - Lost track of history of this relative to Rubric.js.  I suspect Rubric.js is 'old' since it is not .ts code.
      **/
-    extractRubric() {
-        // Note this traversal assumes every <h1>, <h2> etc. is immediately preceded by a <section> element
+    extractRubric() 
+    {
+        
+        let h1c, h2c, h3c;   // 'headingCountX' ....
+        
+        /**
+         *   <section> <h1>
+         */
         let h1List = document.querySelectorAll("section > h1");
-        let h1c, h2c, h3c;
         h1c = 1;
         for (let h1 of h1List) {
             console.assert(h1.parentElement.tagName === "SECTION");
-            this.collectInstructions(h1.parentElement, h1c.toString());
-            let parent = h1.parentElement;
-            let selfIndex = [].slice.call(parent.children).indexOf(h1) + 1;
-            let h2List = parent.querySelectorAll(":nth-child(" + selfIndex + ") ~ section > h2");
+    
+            const h1InstructionCount = instructions.instructions.length;
+            this.collectInstructions(h1.parentElement, h1c.toString(),null);            
+            const h1NoInstructions : boolean = h1InstructionCount === instructions.instructions.length;
+            let parent : HTMLElement = h1.parentElement;
 
+            let parent1 : Instruction = null;
+            if (h1NoInstructions)                
+                parent1 = instructions.instructions[h1InstructionCount];
+    
+            let selfIndex = [].slice.call(parent.children).indexOf(h1) + 1;   // index of <h1> element, 'h1', within it's parent HTML element
+
+            /**
+             *   <section> <h2>
+            */                                               
+            let h2List = parent.querySelectorAll(":nth-child(" + selfIndex + ") ~ section > h2"); // all <h2> children in this <h1> element 'h1'    
             if (h2List !== null && h2List.length !== 0) {
                 h2c = 1;
                 for (let h2 of h2List) {
                     console.assert(h2.parentElement.tagName === "SECTION");
-                    this.collectInstructions(h2.parentElement, h1c.toString() + "." + h2c.toString());
+                    const h2InstructionCount = instructions.instructions.length;
+                    this.collectInstructions(h2.parentElement, h1c.toString() + "." + h2c.toString(),parent1);
+                    const h2NoInstructions : boolean = h2InstructionCount === instructions.instructions.length;
+    
                     let parent = h2.parentElement;
+
+                    let parent2 : Instruction = null;
+                    if (h2NoInstructions)                
+                        parent2 = instructions.instructions[h2InstructionCount];
+        
                     let selfIndex = [].slice.call(parent.children).indexOf(h2) + 1;
+
+                    /**
+                    *   <section> <h3>
+                    */                    
                     let h3List = parent.querySelectorAll(":nth-child(" + selfIndex + ") ~ section > h3");
                     if (h3List !== null && h3List.length !== 0) {
                         h3c = 1;
                         for (let h3 of h3List) {
                             console.assert(h3.parentElement.tagName === "SECTION");
-                            this.collectInstructions(h3.parentElement, h1c.toString() + "." + h2c.toString() + "." + h3c.toString());
+    
+                            const h3InstructionCount = instructions.instructions.length;
+                            this.collectInstructions(h3.parentElement, h1c.toString() + "." + h2c.toString() + "." + h3c.toString(),parent2);
+                            const h3NoInstructions : boolean = h3InstructionCount === instructions.instructions.length;
+    
+                            if(0)
+                                // if this <Section> had no Instructions, create Instruction  Category.SECTION
+                                if (h3NoInstructions && instructions.instructions.length != h3InstructionCount){
+                                    instructions.push(instructions.instructions[instructions.instructions.length-1]);
+                                    instructions.instructions.copyWithin(h3InstructionCount,h3InstructionCount-1,instructions.instructions.length-2);
+        
+                                    const section = h3.parentElement;
+                                    instructions.instructions[h3InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), "",
+                                        (<HTMLHeadingElement>h3).innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0 ,parent2);
+                                    section.id = instructions.instructions[h3InstructionCount].id;
+                                }
                             h3c++;
                         }
+    
                     }
+    
+                    if (0)
+                        if (h2NoInstructions && instructions.instructions.length != h2InstructionCount){
+                            instructions.push(instructions.instructions[instructions.instructions.length-1]);
+                            instructions.instructions.copyWithin(h2InstructionCount,h2InstructionCount-1,instructions.instructions.length-2);
+        
+                            const section = h2.parentElement;
+                            instructions.instructions[h2InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString(), "",
+                                (<HTMLHeadingElement>h2).innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0 );
+                            section.id = instructions.instructions[h2InstructionCount].id;
+                        }                
                     h2c++;
+                }
+    
+            if (h1NoInstructions && instructions.instructions.length != h1InstructionCount){
+                instructions.push(instructions.instructions[instructions.instructions.length-1]);
+                instructions.instructions.copyWithin(h1InstructionCount,h1InstructionCount-1,instructions.instructions.length-2);
+    
+                const section = h1.parentElement;
+                instructions.instructions[h1InstructionCount] = new Instruction(h1c.toString(), "",
+                    (<HTMLHeadingElement>h1).innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0 );
+                section.id = instructions.instructions[h1InstructionCount].id;
                 }
             }
             if (h1.className !== "nocount")
                 h1c++;
         }
-        console.log(this.instructions);
+        console.log(instructions);
+            console.log(this.instructions);
         this.displayRubric();
     }
     //console.log("instructions.length:"+instructions.length);
@@ -264,12 +377,11 @@ export class Instructions
     displayRubric()
     {
     /*
-     * construct <tbody> for <table> (#RubricTable) using instructions.array and add
+     * construct <tbody> for <table> (#RubricTable) using instructions array and add
      * various <input> HTML elements to certain <table> columns
      */
-    let rubric = document.querySelector("#RubricTable > tbody");
-    let prevSection = "";
-    let total=0;
+    let rubric : HTMLTableSectionElement = document.querySelector("#RubricTable > tbody");
+    let prevSection : string = "";
     const REGEX = /Symbol\(([^)]*)\)/; // for removing Symbol sub-string
     let ri=0;
     for (let instruction of this.instructions) {
@@ -279,55 +391,39 @@ export class Instructions
             row.innerHTML =
                 `<td class="Empty"></td>
                  <td>${instruction.number}</td>
-				 <td>${instruction.category.toString().replace(REGEX, '$1')}</td>
-				 <td><a href="#${instruction.id}" onclick="document.getElementById('${instruction.id}').scrollIntoView();">${instruction.short}</a></td>
-				 <td>${instruction.points == 0 ? "" : instruction.points.toString()}</td>
-                 <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>                 
-                 <td><input type="number" min="0" max="100"></td>
+				 <td>${Category[instruction.category].toLowerCase()}</td>
+				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
+                 <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
+                 <td>${instruction.pointFraction.toFixed(0)}</td>
+                 <td></td>
+                 <td></td>
                  <td><input type="text"></td>`;
         else
             row.innerHTML =
                 `<td>${instruction.section}</td>
 				 <td>${instruction.number}</td>
-				 <td>${instruction.category.toString().replace(REGEX, '$1')}</td>
-				 <td><a href="#${instruction.id}" onclick="document.getElementById('${instruction.id}').scrollIntoView();">${instruction.short}</a></td>                 
-                 <td>${instruction.points == 0 ? "" : instruction.points.toString()}</td>
+				 <td>${Category[instruction.category].toLowerCase()}</td>
+				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
-                 <td><input type="number" min="0" max="100"></td>
+                 <td>${instruction.pointFraction.toFixed(0)}</td>
+                 <td></td>
+                 <td></td>
                  <td><input type="text"></td>`;
         prevSection = instruction.section;
-        total += instruction.points;
-        rubric.append(row);
-        row.querySelector('input[type="checkbox"]').addEventListener('change',
-            (e : InputEvent ) =>
-            {
-                const rowIndex=parseInt((<HTMLElement>e.srcElement).parentElement.parentElement.getAttribute("data-ri"));
-                if ((<HTMLInputElement>e.currentTarget).checked)
-                    this.instructions[rowIndex].marks = this.instructions[rowIndex].points;
-                else
-                    this.instructions[rowIndex].marks = 0;
-                (<HTMLInputElement>(<HTMLInputElement>e.currentTarget).parentElement.nextElementSibling.firstChild).value = this.instructions[rowIndex].marks.toString();
-            });
         row.querySelector('input[type="text"]').addEventListener('input',
-            (e : InputEvent ) =>
+            (e : Event) =>
             {
-                const itemID=(<HTMLElement>e.currentTarget).parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('a').getAttribute('href');
-                const rowIndex=parseInt((<HTMLElement>e.srcElement).parentElement.parentElement.getAttribute("data-ri"));
+                const itemID=(<HTMLInputElement>(e.target)).parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('a').getAttribute('href');
+                const rowIndex=parseInt((<HTMLInputElement>(e.target)).parentElement.parentElement.getAttribute("data-ri"));
                 console.log(itemID.slice(1) + ":" + rowIndex + ":" + e);
-                console.log(this.instructions[rowIndex]);
-                this.instructions[rowIndex].comment = (<HTMLInputElement>e.currentTarget).value;
+                console.log(instructions.instructions[rowIndex]);
+                instructions.instructions[rowIndex].comment = (<HTMLInputElement>(e.target)).value;
             });
-        row.querySelector('input[type="number"]').addEventListener('change',
-            (e : InputEvent ) =>
-            {
-                const rowIndex=parseInt((<HTMLElement>e.srcElement).parentElement.parentElement.getAttribute("data-ri"));
-                console.log(this.instructions[rowIndex]);
-                this.instructions[rowIndex].marks = parseInt((<HTMLInputElement>e.currentTarget).value);
-            });
+        rubric.append(row);
         ri++;
     }
     let ttd = document.getElementById("Total");
-    (<HTMLElement>ttd.nextElementSibling).innerText = total.toString();
+    //(<HTMLElement>ttd.nextElementSibling).innerText = total.toString();
 
     }
 }
