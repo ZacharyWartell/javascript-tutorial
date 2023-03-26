@@ -81,14 +81,14 @@ export class OptionSet {
            static TODO = 3;
     };*/
 export class Instruction {
-    constructor(s = "", n = "", sh = "", c = Category.GENERAL, points = 0, parent = null) {
+    constructor(s = "", n = "", sh = "", c = Category.GENERAL, pointFraction = 0, parent = null) {
         this.section = s;
         this.number = n;
         this.short = sh;
         this.category = c;
         this.id = "Section_" + (s + "_Item_" + n).replace(/\./g, '_');
-        this.pointFraction = 0;
-        this.points = points;
+        this.pointFraction = pointFraction;
+        this.points = 0;
         this.marks = 0;
         this.comment = "";
         this.parent = parent;
@@ -130,7 +130,7 @@ export class Instructions {
         **  Create Instruction for <section> 'section'
         */
         const h = section.querySelector(":scope > h1, :scope > h2, :scope > h3");
-        instructions.push(new Instruction(sectionLabel, "", h.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0, parent));
+        instructions.push(new Instruction(sectionLabel, "", h.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0, parent));
         const parent0 = instructions.instructions[instructions.instructions.length - 1];
         section.id = instructions.instructions[instructions.instructions.length - 1].id;
         const nInstructions = instructions.instructions.length;
@@ -158,7 +158,7 @@ export class Instructions {
                     let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
                     if (tmp === Category.NON_RUBRIC)
                         continue;
-                    instructions.push(new Instruction(sectionLabel, itemString(l1c), li1.innerText.trimStart().slice(0, 10) + " ...", cat, li1.dataset.pointFraction !== undefined ? parseInt(li1.dataset.pointFraction) : equalFraction1, parent0));
+                    instructions.push(new Instruction(sectionLabel, itemString(l1c), li1.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li1.dataset ? parseInt(li1.dataset.pointFraction) : equalFraction1, parent0));
                     const parent1 = instructions.instructions[instructions.instructions.length - 1];
                     li1.id = instructions.instructions[instructions.instructions.length - 1].id;
                     let ol1 = li1.querySelector(":scope > ol");
@@ -173,7 +173,7 @@ export class Instructions {
                         for (let li2_ of li2List) {
                             const li2 = li2_;
                             let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
-                            instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c), li2.innerText.trimStart().slice(0, 10) + " ...", cat, li2.dataset.pointFraction !== undefined ? parseInt(li2.dataset.pointFraction) : equalFraction2, parent1));
+                            instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c), li2.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li2.dataset ? parseInt(li2.dataset.pointFraction) : equalFraction2, parent1));
                             const parent2 = instructions.instructions[instructions.instructions.length - 1];
                             li2.id = instructions.instructions[instructions.instructions.length - 1].id;
                             let ol2 = li2.querySelector(":scope > ol");
@@ -188,7 +188,7 @@ export class Instructions {
                                 for (let li3_ of li3List) {
                                     const li3 = li3_;
                                     let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
-                                    instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c, l3c), li3.innerText.trimStart().slice(0, 10) + " ...", cat, li3.dataset.pointFraction !== undefined ? parseInt(li3.dataset.pointFraction) : equalFraction3, parent2));
+                                    instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c, l3c), li3.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li3.dataset ? parseInt(li3.dataset.pointFraction) : equalFraction3, parent2));
                                     li3.id = instructions.instructions[instructions.instructions.length - 1].id;
                                     l3c++;
                                 }
@@ -258,7 +258,7 @@ export class Instructions {
                                     instructions.push(instructions.instructions[instructions.instructions.length - 1]);
                                     instructions.instructions.copyWithin(h3InstructionCount, h3InstructionCount - 1, instructions.instructions.length - 2);
                                     const section = h3.parentElement;
-                                    instructions.instructions[h3InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), "", h3.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0, parent2);
+                                    instructions.instructions[h3InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), "", h3.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0, parent2);
                                     section.id = instructions.instructions[h3InstructionCount].id;
                                 }
                             h3c++;
@@ -269,7 +269,7 @@ export class Instructions {
                             instructions.push(instructions.instructions[instructions.instructions.length - 1]);
                             instructions.instructions.copyWithin(h2InstructionCount, h2InstructionCount - 1, instructions.instructions.length - 2);
                             const section = h2.parentElement;
-                            instructions.instructions[h2InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString(), "", h2.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0);
+                            instructions.instructions[h2InstructionCount] = new Instruction(h1c.toString() + "." + h2c.toString(), "", h2.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0);
                             section.id = instructions.instructions[h2InstructionCount].id;
                         }
                     h2c++;
@@ -278,7 +278,7 @@ export class Instructions {
                     instructions.push(instructions.instructions[instructions.instructions.length - 1]);
                     instructions.instructions.copyWithin(h1InstructionCount, h1InstructionCount - 1, instructions.instructions.length - 2);
                     const section = h1.parentElement;
-                    instructions.instructions[h1InstructionCount] = new Instruction(h1c.toString(), "", h1.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, section.dataset.pointFraction !== undefined ? parseInt(section.dataset.pointFraction) : 0);
+                    instructions.instructions[h1InstructionCount] = new Instruction(h1c.toString(), "", h1.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0);
                     section.id = instructions.instructions[h1InstructionCount].id;
                 }
             }
@@ -310,7 +310,7 @@ export class Instructions {
 				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
-                 <td></td>
+                 <td>${instruction.points.toFixed(0)}</td>
                  <td></td>
                  <td><input type="text"></td>`;
             else
@@ -321,7 +321,7 @@ export class Instructions {
 				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
-                 <td></td>
+                 <td>${instruction.points.toFixed(0)}</td>
                  <td></td>
                  <td><input type="text"></td>`;
             prevSection = instruction.section;
