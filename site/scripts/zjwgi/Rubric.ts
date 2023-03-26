@@ -22,9 +22,11 @@ enum Category
      OVERVIEW = "OVERVIEW",
      NON_RUBRIC = "NON_RUBRIC",
      REMINDER = "REMINDER",
-     SECTION = "SECTION"
+     SECTION = "SECTION",
+     COMPOSITE = "COMPOSITE"
  }
 
+ /*
  export const CategoryToString =
      [
          "QUESTION",
@@ -33,8 +35,10 @@ enum Category
          "TODO",
          "OVERVIEW",
          "NON_RUBRIC",
-         "REMINDER"
+         "REMINDER",
+         "cOMPOSITE"
      ];
+*/
 
 /*
 const Category = Object.freeze({
@@ -64,11 +68,13 @@ function getCategoryFromClass(element, returnNull) {
         return Category.REMINDER;        
     if (element.className.includes("Instruction_Section"))
         return Category.SECTION;        
+        if (element.className.includes("Instruction_Composite"))
+        return Category.COMPOSITE;                
 
     if (returnNull)
         return null;
     else
-        return Category.GENERAL;
+        return Category.COMPOSITE;
 }
 
 
@@ -150,12 +156,14 @@ export class Instruction {
 export class Instructions
 {
     instructions : Array<Instruction>;
-    optionSets : Array<OptionSet>;
+    optionSets : Array<OptionSet>;    
 
+    totalPoints : number;
     constructor()
     {
         this.instructions = [];
         this.optionSets = [];
+        this.totalPoints = 100;
     }
 
     push(i : Instruction)
@@ -368,6 +376,15 @@ export class Instructions
             if (h1.className !== "nocount")
                 h1c++;
         }
+
+        /**
+         *  compute points from fraction hierarchy
+         */
+        for (let instruction of this.instructions) {
+            instruction.points = this.totalPoints;
+            for (let p = instruction; p != null; p = p.parent)
+                instruction.points *= p.pointFraction/100;
+        }
         console.log(instructions);
             console.log(this.instructions);
         this.displayRubric();
@@ -395,7 +412,7 @@ export class Instructions
 				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
-                 <td>${instruction.points.toFixed(0)}</td>
+                 <td>${instruction.points.toFixed(2)}</td>
                  <td></td>
                  <td><input type="text"></td>`;
         else
@@ -406,7 +423,7 @@ export class Instructions
 				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
-                 <td>${instruction.points.toFixed(0)}</td>
+                 <td>${instruction.points.toFixed(2)}</td>
                  <td></td>
                  <td><input type="text"></td>`;
         prevSection = instruction.section;
