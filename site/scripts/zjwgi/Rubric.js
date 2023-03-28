@@ -14,15 +14,22 @@
  */
 var Category;
 (function (Category) {
+    /* Instruction instance is associated with a a HTML <section> */
+    Category["SECTION"] = "SECTION";
+    /* Instruction instance is associated with a  HTML <li> that has a child instructional <ol> tree */
+    Category["COMPOSITE"] = "COMPOSITE";
+    /* Instruction instance is associated with a question HTML <li> */
     Category["QUESTION"] = "QUESTION";
-    Category["GENERAL"] = "GENERAL";
+    /* Instruction instance is associated with a reading HTML <li> */
     Category["READ"] = "READ";
+    /* Instruction instance is associated with a todo HTML <li> */
     Category["TODO"] = "TODO";
+    /* Instruction instance is associated with a reminder HTML <li>. A Reminder Instructino has point fraction = 0 */
+    Category["REMINDER"] = "REMINDER";
+    /* [considered for deprecation] Instruction instance is associated with a question HTML <li> */
+    Category["GENERAL"] = "GENERAL";
     Category["OVERVIEW"] = "OVERVIEW";
     Category["NON_RUBRIC"] = "NON_RUBRIC";
-    Category["REMINDER"] = "REMINDER";
-    Category["SECTION"] = "SECTION";
-    Category["COMPOSITE"] = "COMPOSITE";
 })(Category || (Category = {}));
 /*
 export const CategoryToString =
@@ -138,10 +145,15 @@ export class Instructions {
         **  Create Instruction for <section> 'section'
         */
         const h = section.querySelector(":scope > h1, :scope > h2, :scope > h3");
-        instructions.push(new Instruction(sectionLabel, "", h.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0, parent));
-        const parent0 = instructions.instructions[instructions.instructions.length - 1];
-        section.id = instructions.instructions[instructions.instructions.length - 1].id;
-        const nInstructions = instructions.instructions.length;
+        let parent0 = null;
+        if (0) { // [wip]
+            this.instructions.push(new Instruction(sectionLabel, "", h.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0, parent));
+            parent0 = this.instructions[instructions.instructions.length - 1];
+            section.id = this.instructions[instructions.instructions.length - 1].id;
+        }
+        else
+            parent0 = parent;
+        const nInstructions = this.instructions.length;
         /*
         **  Collection <li> Instructions in <section> 'section'
         */
@@ -166,9 +178,9 @@ export class Instructions {
                     let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
                     if (tmp === Category.NON_RUBRIC)
                         continue;
-                    instructions.push(new Instruction(sectionLabel, itemString(l1c), li1.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li1.dataset ? parseInt(li1.dataset.pointFraction) : equalFraction1, parent0));
-                    const parent1 = instructions.instructions[instructions.instructions.length - 1];
-                    li1.id = instructions.instructions[instructions.instructions.length - 1].id;
+                    this.instructions.push(new Instruction(sectionLabel, itemString(l1c), li1.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li1.dataset ? parseInt(li1.dataset.pointFraction) : equalFraction1, parent0));
+                    const parent1 = this.instructions[instructions.instructions.length - 1];
+                    li1.id = this.instructions[this.instructions.length - 1].id;
                     let ol1 = li1.querySelector(":scope > ol");
                     /*
                     **  Collection level 3 <li> Instructions
@@ -181,9 +193,9 @@ export class Instructions {
                         for (let li2_ of li2List) {
                             const li2 = li2_;
                             let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
-                            instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c), li2.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li2.dataset ? parseInt(li2.dataset.pointFraction) : equalFraction2, parent1));
-                            const parent2 = instructions.instructions[instructions.instructions.length - 1];
-                            li2.id = instructions.instructions[instructions.instructions.length - 1].id;
+                            this.instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c), li2.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li2.dataset ? parseInt(li2.dataset.pointFraction) : equalFraction2, parent1));
+                            const parent2 = this.instructions[instructions.instructions.length - 1];
+                            li2.id = this.instructions[this.instructions.length - 1].id;
                             let ol2 = li2.querySelector(":scope > ol");
                             if (ol2 !== null) { // && ol2.length !== 0) {
                                 /*
@@ -196,8 +208,8 @@ export class Instructions {
                                 for (let li3_ of li3List) {
                                     const li3 = li3_;
                                     let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
-                                    instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c, l3c), li3.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li3.dataset ? parseInt(li3.dataset.pointFraction) : equalFraction3, parent2));
-                                    li3.id = instructions.instructions[instructions.instructions.length - 1].id;
+                                    this.instructions.push(new Instruction(sectionLabel, itemString(l1c, l2c, l3c), li3.innerText.trimStart().slice(0, 10) + " ...", cat, 'pointFraction' in li3.dataset ? parseInt(li3.dataset.pointFraction) : equalFraction3, parent2));
+                                    li3.id = this.instructions[this.instructions.length - 1].id;
                                     l3c++;
                                 }
                             }
@@ -209,8 +221,8 @@ export class Instructions {
             }
         }
         // remove section if it contains no <ol class=Instruction>
-        if (nInstructions === instructions.instructions.length)
-            instructions.instructions.pop();
+        //if (nInstructions === instructions.instructions.length)
+        //instructions.instructions.pop();
     }
     /**
      *
@@ -219,47 +231,63 @@ export class Instructions {
     extractRubric() {
         let h1c, h2c, h3c; // 'headingCountX' ....
         /**
+         * \todo [priority=low] these nested for loops argument for refactoring into a single for loop with recursiion, albiet with perhaps(?) slightly different
+         * rules applied depending on the depth the recursion
+         */
+        /**
          *   <section> <h1>
          */
         let h1List = document.querySelectorAll("section > h1");
         h1c = 1;
+        let parent1 = null;
+        let lastH1NoInstructions = true;
         for (let h1 of h1List) {
-            console.assert(h1.parentElement.tagName === "SECTION");
-            const h1InstructionCount = instructions.instructions.length;
-            this.collectInstructions(h1.parentElement, h1c.toString(), null);
-            const h1NoInstructions = h1InstructionCount === instructions.instructions.length;
-            let parent = h1.parentElement;
-            let parent1 = null;
-            if (h1NoInstructions)
-                parent1 = instructions.instructions[h1InstructionCount];
-            let selfIndex = [].slice.call(parent.children).indexOf(h1) + 1; // index of <h1> element, 'h1', within it's parent HTML element
+            const section1 = h1.parentElement;
+            console.log("h1: ", h1.innerText);
+            console.assert(section1.tagName === "SECTION");
+            if (section1.classList.contains("Instruction_Section")) {
+                parent1 = new Instruction(h1c.toString(), "", h1.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section1.dataset ? parseInt(section1.dataset.pointFraction) : 0);
+                this.instructions.push(parent1);
+            }
+            const h1InstructionCount = this.instructions.length;
+            this.collectInstructions(section1, h1c.toString(), parent1);
+            const h1NoInstructions = h1InstructionCount === this.instructions.length;
+            //if (lastH1NoInstructions)
+            lastH1NoInstructions = h1NoInstructions;
             /**
              *   <section> <h2>
             */
-            let h2List = parent.querySelectorAll(":nth-child(" + selfIndex + ") ~ section > h2"); // all <h2> children in this <h1> element 'h1'    
+            //let h2List = parent.querySelectorAll(":nth-child(" + selfIndex + ") > section > h2"); // all <h2> children in this <h1> element 'h1'    
+            let h2List = section1.querySelectorAll(":scope > section > h2"); // all <h2> children in this <h1> element 'h1'    
+            let parent2 = null;
             if (h2List !== null && h2List.length !== 0) {
                 h2c = 1;
                 for (let h2 of h2List) {
-                    console.assert(h2.parentElement.tagName === "SECTION");
-                    const h2InstructionCount = instructions.instructions.length;
-                    this.collectInstructions(h2.parentElement, h1c.toString() + "." + h2c.toString(), parent1);
-                    const h2NoInstructions = h2InstructionCount === instructions.instructions.length;
-                    let parent = h2.parentElement;
-                    let parent2 = null;
-                    if (h2NoInstructions)
-                        parent2 = instructions.instructions[h2InstructionCount];
-                    let selfIndex = [].slice.call(parent.children).indexOf(h2) + 1;
+                    const section2 = h2.parentElement;
+                    console.log("h2: ", h2.innerText);
+                    console.assert(section2.tagName === "SECTION");
+                    if (section2.classList.contains("Instruction_Section")) {
+                        parent2 = new Instruction(h1c.toString() + "." + h2c.toString(), "", h2.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section2.dataset ? parseInt(section2.dataset.pointFraction) : 0, parent1);
+                        this.instructions.push(parent2);
+                    }
+                    const h2InstructionCount = this.instructions.length;
+                    this.collectInstructions(section2, h1c.toString() + "." + h2c.toString(), parent2);
+                    const h2NoInstructions = h2InstructionCount === this.instructions.length;
                     /**
                     *   <section> <h3>
                     */
-                    let h3List = parent.querySelectorAll(":nth-child(" + selfIndex + ") ~ section > h3");
+                    let h3List = section2.querySelectorAll(":scope > section > h3");
                     if (h3List !== null && h3List.length !== 0) {
                         h3c = 1;
                         for (let h3 of h3List) {
-                            console.assert(h3.parentElement.tagName === "SECTION");
-                            const h3InstructionCount = instructions.instructions.length;
-                            this.collectInstructions(h3.parentElement, h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), parent2);
-                            const h3NoInstructions = h3InstructionCount === instructions.instructions.length;
+                            const section3 = h3.parentElement;
+                            console.assert(section3.tagName === "SECTION");
+                            if (section3.classList.contains("Instruction_Section")) {
+                                this.instructions.push(new Instruction(h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), "", h3.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section3.dataset ? parseInt(section3.dataset.pointFraction) : 0, parent2));
+                            }
+                            const h3InstructionCount = this.instructions.length;
+                            this.collectInstructions(section3, h1c.toString() + "." + h2c.toString() + "." + h3c.toString(), parent2);
+                            const h3NoInstructions = h3InstructionCount === this.instructions.length;
                             if (0)
                                 // if this <Section> had no Instructions, create Instruction  Category.SECTION
                                 if (h3NoInstructions && instructions.instructions.length != h3InstructionCount) {
@@ -282,13 +310,14 @@ export class Instructions {
                         }
                     h2c++;
                 }
-                if (h1NoInstructions && instructions.instructions.length != h1InstructionCount) {
-                    instructions.push(instructions.instructions[instructions.instructions.length - 1]);
-                    instructions.instructions.copyWithin(h1InstructionCount, h1InstructionCount - 1, instructions.instructions.length - 2);
-                    const section = h1.parentElement;
-                    instructions.instructions[h1InstructionCount] = new Instruction(h1c.toString(), "", h1.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0);
-                    section.id = instructions.instructions[h1InstructionCount].id;
-                }
+                if (0)
+                    if (h1NoInstructions && instructions.instructions.length != h1InstructionCount) {
+                        instructions.push(instructions.instructions[instructions.instructions.length - 1]);
+                        instructions.instructions.copyWithin(h1InstructionCount, h1InstructionCount - 1, instructions.instructions.length - 2);
+                        const section = h1.parentElement;
+                        instructions.instructions[h1InstructionCount] = new Instruction(h1c.toString(), "", h1.innerText.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in section.dataset ? parseInt(section.dataset.pointFraction) : 0);
+                        section.id = instructions.instructions[h1InstructionCount].id;
+                    }
             }
             if (h1.className !== "nocount")
                 h1c++;
