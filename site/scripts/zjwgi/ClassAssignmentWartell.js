@@ -323,10 +323,11 @@ export function onload() {
     /**
      ***  (Re)Initialize toc module
      **/
-    $('#toc')["toc"]({
-        'smoothScrolling': true,
-        'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-    });
+    if (0)
+        $('#toc')["toc"]({
+            'smoothScrolling': true,
+            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+        });
     /**
      ***  Initialize <table id="RubricTable">
      **/

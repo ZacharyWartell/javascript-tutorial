@@ -153,6 +153,14 @@ export class Instruction {
     }
 }
 
+export class BreadCrumb
+{
+    static onclick(anchor : HTMLAnchorElement )
+    {
+        console.log("BreadCrumb.onclick:", anchor);
+    }    
+}
+
 export class Instructions {
     instructions: Array<Instruction>;
     optionSets: Array<OptionSet>;
@@ -434,7 +442,7 @@ export class Instructions {
                     `<td class="Empty"></td>
                  <td>${instruction.number}</td>
 				 <td>${Category[instruction.category].toLowerCase()}</td>
-				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
+				 <td><a href="#${instruction.id}" onclick="BreadCrumb.onclick(this);">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
                  <td>${instruction.points.toFixed(2)}</td>
@@ -445,7 +453,7 @@ export class Instructions {
                     `<td>${instruction.section}</td>
 				 <td>${instruction.number}</td>
 				 <td>${Category[instruction.category].toLowerCase()}</td>
-				 <td><a href="#${instruction.id}">${instruction.short}</a></td>
+				 <td><a href="#${instruction.id}" onclick="BreadCrumb.onclick(this);">${instruction.short}</a></td>
                  <td><input type="checkbox" id="#CB_${instruction.id}" name="scales"></td>
                  <td>${instruction.pointFraction.toFixed(0)}</td>
                  <td>${instruction.points.toFixed(2)}</td>
