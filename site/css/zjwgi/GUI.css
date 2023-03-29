@@ -47,5 +47,5 @@ ul.SubMenu > li
 section#MainWindow
 {
     overflow-y: scroll;
-    height : 95vh;;
+    height : 105vh;
 }
