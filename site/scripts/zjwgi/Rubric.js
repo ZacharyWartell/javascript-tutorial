@@ -128,10 +128,30 @@ export class Instruction {
     }
 }
 export class BreadCrumb {
+    constructor(target) {
+        this.target = target;
+    }
     static onclick(anchor) {
-        console.log("BreadCrumb.onclick:", anchor);
+        anchor.id = "BC_" + Date.now().toString();
+        //const url = new URL(window.location);        
+        //window.history.pushState(null,url.toString()+"#"+anchor.id);
+        anchor.setAttribute("anchor", anchor.id);
+        window.history.pushState({}, "", window.location.pathname + "#" + anchor.id);
+        console.log("BreadCrumb.onclick:", anchor, "state", window.history.state);
+        const target = document.getElementById(anchor.getAttribute("href").split('#')[1]);
+        target.scrollIntoView(true);
+        BreadCrumbs.singleton.array.push(new BreadCrumb(anchor));
+        BreadCrumbs.singleton.array.push(new BreadCrumb(anchor));
+        BreadCrumbs.singleton.cursor += 2;
     }
 }
+export class BreadCrumbs {
+    constructor() {
+        this.array = new Array();
+        this.cursor = 0;
+    }
+}
+BreadCrumbs.singleton = new BreadCrumbs();
 export class Instructions {
     constructor() {
         this.instructions = [];

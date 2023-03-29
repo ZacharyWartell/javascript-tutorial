@@ -27,12 +27,12 @@
             import * as CAW from "./scripts/zjwgi/ClassAssignmentWartell.js"; 
             
             window.BreadCrumb = Rubric.BreadCrumb;
-                
+
             CAW.main();
             window.Visibility_Toggle = CAW.Visibility_Toggle; window.onload_Body = onload_Body; console.log("window.rubricMain"); document.getElementById("Instructor_Mode").addEventListener('change',
                 (e) => { Visibility_Toggle('Staff_Notes', e.target.checked); Visibility_Toggle('Staff_Only', e.target.checked); document.getElementById("fileMenu").disabled = !e.target.checked; }); function onload_Body() {
                     console.log("function onload_Body()");
-                    CAW.onload_InstructionsFile();
+                    //CAW.onload_InstructionsFile();
                 }
     </script>
   </head>
@@ -50,9 +50,13 @@
         <!-- AssignmentName.name -->
         <div>webgl-tutorial-1</div>
       </div>    
-    <section id="MainWindow" style="margin-left:250px; overflow-y: hidden;">
+    <section id="MainWindow" style="margin-left:250px;"><!-- </section>" overflow-y: hidden;"> -->
         <div id="Toolbar" class="Toolbar">
-            <div class="Menu"> <button id="fileMenu" disabled="disabled" onclick="document.getElementById('fileSubMenu').hidden=false;">File</button>
+            <div class="Menu"> 
+                <button id="back">Back</button>
+                <button id="forward">Forward</button>
+                
+                <button id="fileMenu" disabled="disabled" onclick="document.getElementById('fileSubMenu').hidden=false;">File</button>
                 <ul id="fileSubMenu" class="SubMenu" hidden="">
                 <li> <input id="loadFile" name="loadFile" accept="/html" type="file">
                 </li>
@@ -64,7 +68,7 @@
         
                 for="Instructor_Mode">Instructor Mode</label> </div>
             </div>
-      <div style="overflow-y: scroll; height : 100%;">
+      <div> <!--  style="overflow-y: scroll; height : 100%;"> -->
         <h2 class="nocount Title">ITCS <span data-course-number=""></span> :
           JavaScript Tutorial<br>
         </h2>
@@ -393,7 +397,7 @@
                     will be when grading the Console log of your work see <a href="#Grading_Criteria">Grading
                       Criteria</a>.<br>
                     <br>
-                    <img src="grey-code-box.png" alt="" title="grey-code-box"><br>
+                    <img src="images/grey-code-box.png" alt="" title="grey-code-box"><br>
                     <br>
                   </li>
                   <li class="Instruction_Todo">Save the Console log to a log
@@ -1128,9 +1132,13 @@
           Professor. <br>
         </p>
       </section>
+      <section>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        Intentionally Left Blank
+    </section>
       </div>
     </section>
-
     <!--
 <script type="module" src="main.js"></script>    This also fails:      Uncaught TypeError: Failed to resolve module specifier "@firstandthird/toc". Relative references must start with either "/", "./", or "../".    <script type="module" src="main.js"></script>    -->
     <!--

@@ -162,8 +162,10 @@ export function main()
     apiCheck();
     
     /**
-     **   Setup Menu Bar
+     **   Setup Toolbar
      **/
+
+
 
     /*
      *  add eventListners the close SubMenu on mouseleave 
@@ -178,6 +180,9 @@ export function main()
                     (<HTMLElement>e.target).hidden=true;
                 });
         });
+
+
+            
 
     let input;
     /*
@@ -243,6 +248,22 @@ export function main()
                 throw err;
             }
         });
+
+
+    input = document.getElementById("back");
+    input.addEventListener('click',
+        (e:MouseEvent)=>        
+            {
+                console.log("back", window.history.state);
+                if (false){
+                    window.history.scrollRestoration = "auto";
+                    window.history.go(-1);                    
+                }
+                else {
+                    Inst.BreadCrumbs.singleton.array[Inst.BreadCrumbs.singleton.array.length-1].target.scrollIntoView(true);
+                }
+            });
+
 
     const inputFile : HTMLInputElement = <HTMLInputElement> document.getElementById("loadFile");
     inputFile.addEventListener('change',
