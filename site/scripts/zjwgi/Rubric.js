@@ -107,6 +107,24 @@ export class Section {
         this.id = "Section_" + this.sectionNumber;
         Section.sections.push(this);
     }
+    static buildList(section, ul) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#${section.id}">${section.sectionNumber} ${section.name}</a>`;
+        ul.appendChild(li);
+        if (section.children.length !== 0) {
+            const ul = document.createElement("ul");
+            li.appendChild(ul);
+            for (let s of section.children)
+                Section.buildList(s, ul);
+        }
+    }
+    static displayTableOfContents() {
+        const snb = document.getElementById("side-nav-bar");
+        const ul = document.createElement("ul");
+        snb.appendChild(ul);
+        for (let s of Section.sections)
+            Section.buildList(s, ul);
+    }
 }
 Section.sections = new Array();
 /*class Category
@@ -309,8 +327,8 @@ export class Instructions {
             for (let p = instruction; p != null; p = p.parent)
                 instruction.points *= p.pointFraction / 100;
         }
-        console.log(instructions);
         console.log(this.instructions);
+        console.log(Section.sections);
         this.displayRubric();
     }
     //console.log("instructions.length:"+instructions.length);

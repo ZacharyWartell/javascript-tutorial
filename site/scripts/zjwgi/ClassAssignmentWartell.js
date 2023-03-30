@@ -11,7 +11,7 @@ import "./third-party/toc.min.js";
 //import "./third-party/toc.bundle.js"
 //import '@firstandthird/toc';
 //import "./node_modules/@firstandthird/toc/dist/toc.bundle.js"
-import * as Inst from "./Rubric.js";
+import * as Rubric from "./Rubric.js";
 import { Instruction } from "./Rubric.js";
 /**
  ** \brief AssignmentName contains various components used to describe the name/tile of the instruction's assignment.
@@ -166,7 +166,7 @@ export function main() {
             then((handle) => {
             console.log("Save " + handle);
             //return writeFile(handle,document.getElementById("RubricTable").outerHTML);
-            return writeFile(handle, JSON.stringify(Inst.instructions));
+            return writeFile(handle, JSON.stringify(Rubric.instructions));
         }).
             catch((e) => { throw e; });
         e.target.parentElement.parentElement.hidden = true;
@@ -203,7 +203,7 @@ export function main() {
             window.history.go(-1);
         }
         else {
-            Inst.BreadCrumbs.singleton.array[Inst.BreadCrumbs.singleton.array.length - 1].target.scrollIntoView(true);
+            Rubric.BreadCrumbs.singleton.array[Rubric.BreadCrumbs.singleton.array.length - 1].target.scrollIntoView(true);
         }
     });
     const inputFile = document.getElementById("loadFile");
@@ -220,16 +220,16 @@ export function main() {
              * - https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
              */
             const instructions = Array(JSON.parse(event.target.result.toString()));
-            Inst.instructions.instructions.splice(0);
+            Rubric.instructions.instructions.splice(0);
             for (let ji of instructions) {
                 const i = new Instruction();
                 i.assign(ji);
-                Inst.instructions.push(i);
+                Rubric.instructions.push(i);
             }
             /**
              * Update JS Objects
              */
-            Inst.instructions.displayRubric();
+            Rubric.instructions.displayRubric();
             //init_rubric();
             //onload_InstructionsFile();
         });
@@ -365,7 +365,8 @@ export function onload() {
      ***  Initialize <table id="RubricTable">
      **/
     //init_rubric();
-    Inst.instructions.extractSectionsAndRubricAll();
+    Rubric.instructions.extractSectionsAndRubricAll();
+    Rubric.Section.displayTableOfContents();
     //Rubric.main();
 }
 //# sourceMappingURL=ClassAssignmentWartell.js.map

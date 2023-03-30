@@ -137,7 +137,29 @@ export class Section
 
         Section.sections.push(this);
     }
+    
+    static buildList(section : Section , ul : HTMLUListElement)
+    {
+        const li : HTMLLIElement = document.createElement("li");            
+        li.innerHTML = `<a href="#${section.id}">${section.sectionNumber} ${section.name}</a>`;
+        ul.appendChild(li);    
+        if (section.children.length !== 0)
+        {
+            const ul : HTMLUListElement = document.createElement("ul");        
+            li.appendChild(ul);                                                
+            for(let s of section.children)
+                Section.buildList(s,ul);
+        }
+    }
 
+    static displayTableOfContents()
+    {
+        const snb : HTMLDivElement = <HTMLDivElement>document.getElementById("side-nav-bar");
+        const ul : HTMLUListElement = document.createElement("ul");
+        snb.appendChild(ul);
+        for (let s of Section.sections)        
+            Section.buildList(s,ul);
+    }
     /**
      * array of all Section objects
      */
@@ -411,10 +433,10 @@ export class Instructions {
             instruction.points = this.totalPoints;
             for (let p = instruction; p != null; p = p.parent)
                 instruction.points *= p.pointFraction / 100;
-        }
-        console.log(instructions);
+        }        
         console.log(this.instructions);
-        this.displayRubric();
+        console.log(Section.sections);
+        this.displayRubric();        
     }
     //console.log("instructions.length:"+instructions.length);
 
