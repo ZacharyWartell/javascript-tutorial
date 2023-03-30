@@ -94,6 +94,41 @@ export class OptionSet {
     }
 }
 
+
+/**
+ * \brief Section corresponding to a <section> in the document
+ */
+export class Section
+{    
+    name: string;
+    section: string;    
+    number: number;  // number within current level
+    level : number;  // depth of nesting in <section> tree
+    id: string;      // HTML id attribute of <section>
+
+    parent : Section;          // parent Section
+    children : Array<Section>; // child Section    
+
+    instruction : Instruction;  // associated Instruction
+    
+    constructor(name : string, parent : Section, id : string , number : number)
+    {
+        this.name = name;
+
+        this.parent = parent;
+        if (parent !== null)
+            parent.children.push (this);
+
+        // \todo [refactor] calculate id in this constructor instead
+        this.id = id;
+
+        // \todo calculate from ancestors
+        this.section = null; 
+        // \todo calculate from ancestors
+        this.level = 0;
+
+    }
+}
 /*class Category
     {
         constructor(e)
