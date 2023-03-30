@@ -7,11 +7,6 @@
  \status [STATUS=not deployed] work-in-progress
  */
 import "./third-party/jquery-3.5.1.min.js";
-import "./third-party/toc.min.js";
-//import "./third-party/toc.bundle.js"
-
-//import '@firstandthird/toc';
-//import "./node_modules/@firstandthird/toc/dist/toc.bundle.js"
 
 import * as Rubric from "./Rubric.js";
 import {cssNumber} from "./third-party/jquery-3.5.1.min.js";
@@ -124,23 +119,6 @@ function Visibility_Toggle(Class : string, visible: boolean)
         */
     }
 
-    /*
-    * Re-Initialize toc module
-    */
-    $('#toc')["toc"](
-        {
-            'smoothScrolling': true,
-            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-        }
-    );
-    /*
-    console.log (typeof document.getElementById('toc')["toc"]);
-    document.getElementById('toc')["toc"](
-        { 'smoothScrolling': true,
-            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-        }
-    );
-     */
 }
 /*
 https://web.dev/file-system-access/
@@ -419,37 +397,7 @@ function onload()
         button.innerHTML = "&trianglerighteq;";
         e.after(button);
     }
-
-    /**
-     ***  (Re)Initialize toc module
-     **/
-    if (false)
-        $('#toc')["toc"](
-            {
-                'smoothScrolling': true,
-                'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-            }
-        );
-
-    if (false)            
-        $('#toc')["toc"]({
-            'selectors': 'h1,h2,h3', //elements to use as headings
-            'container': 'body', //element to find all selectors in
-            'smoothScrolling': true, //enable or disable smooth scrolling on click
-            'prefix': 'toc', //prefix for anchor tags and class names
-            'onHighlight': function(el) {}, //called when a new section is highlighted 
-            'highlightOnScroll': true, //add class to heading that is currently in focus
-            'highlightOffset': 100, //offset to trigger the next headline
-            'anchorName': function(i, heading, prefix) { //custom function for anchor name
-                return prefix+i;
-            },
-            'headerText': function(i, heading, $heading) { //custom function building the header-item text
-                return $heading.text();
-            },
-        'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
-            return $heading[0].tagName.toLowerCase();
-        }
-        });        
+       
 
     /**
      ***  Initialize <table id="RubricTable">
