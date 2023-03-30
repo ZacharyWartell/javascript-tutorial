@@ -109,11 +109,12 @@ export class Section {
     }
     static buildList(section, ul) {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="#${section.id}">${section.sectionNumber} ${section.name}</a>`;
+        li.innerHTML = `${section.sectionNumber} <a href="#${section.id}">${section.name}</a>`;
         ul.appendChild(li);
         if (section.children.length !== 0) {
             const ul = document.createElement("ul");
             li.appendChild(ul);
+            ul.classList.add("side_nav_bar");
             for (let s of section.children)
                 Section.buildList(s, ul);
         }
@@ -122,6 +123,7 @@ export class Section {
         const snb = document.getElementById("side-nav-bar");
         const ul = document.createElement("ul");
         snb.appendChild(ul);
+        ul.classList.add("side_nav_bar");
         for (let s of Section.sections)
             Section.buildList(s, ul);
     }
