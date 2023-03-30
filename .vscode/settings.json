@@ -1,4 +1,5 @@
 {
     "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
-    "livePreview.customExternalBrowser": "Chrome"
+    "livePreview.customExternalBrowser": "Chrome",
+    "liveServer.settings.port": 5501
 }

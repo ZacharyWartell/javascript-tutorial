@@ -8,6 +8,9 @@
  */
 import "./third-party/jquery-3.5.1.min.js";
 import "./third-party/toc.min.js";
+//import "./third-party/toc.bundle.js"
+//import '@firstandthird/toc';
+//import "./node_modules/@firstandthird/toc/dist/toc.bundle.js"
 import * as Inst from "./Rubric.js";
 import { Instruction } from "./Rubric.js";
 /**
@@ -338,6 +341,25 @@ export function onload() {
         $('#toc')["toc"]({
             'smoothScrolling': true,
             'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+        });
+    if (false)
+        $('#toc')["toc"]({
+            'selectors': 'h1,h2,h3',
+            'container': 'body',
+            'smoothScrolling': true,
+            'prefix': 'toc',
+            'onHighlight': function (el) { },
+            'highlightOnScroll': true,
+            'highlightOffset': 100,
+            'anchorName': function (i, heading, prefix) {
+                return prefix + i;
+            },
+            'headerText': function (i, heading, $heading) {
+                return $heading.text();
+            },
+            'itemClass': function (i, heading, $heading, prefix) {
+                return $heading[0].tagName.toLowerCase();
+            }
         });
     /**
      ***  Initialize <table id="RubricTable">
