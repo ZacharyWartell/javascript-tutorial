@@ -308,9 +308,7 @@ export class Instructions {
 
         /*
         **  Collection <li> Instructions in <section> 'section'
-        */
-        const temp: string = "self" + Date.now().toString();
-        section.id = temp;
+        */        
         let olList = sectionElement.querySelectorAll(":scope > ol.Instruction, :scope > ul.Instruction");
         //section.id = "";
         if (olList !== null && olList.length !== 0) {
@@ -410,6 +408,7 @@ export class Instructions {
                 console.assert(sectionElement.tagName === "SECTION");
     
                 const section : Section = new Section(sectionName ,parent,hc);
+                sectionElement.setAttribute("id",section.id);
     
                 if (sectionElement.classList.contains("Instruction_Section"))
                 {   

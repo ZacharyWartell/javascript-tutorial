@@ -337,7 +337,7 @@ export function onload() {
     /**
      ***  (Re)Initialize toc module
      **/
-    if (true)
+    if (false)
         $('#toc')["toc"]({
             'smoothScrolling': true,
             'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings

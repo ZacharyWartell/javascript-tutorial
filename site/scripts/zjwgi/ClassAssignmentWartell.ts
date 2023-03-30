@@ -423,7 +423,7 @@ function onload()
     /**
      ***  (Re)Initialize toc module
      **/
-    if (true)
+    if (false)
         $('#toc')["toc"](
             {
                 'smoothScrolling': true,

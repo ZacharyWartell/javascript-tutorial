@@ -223,8 +223,6 @@ export class Instructions {
         /*
         **  Collection <li> Instructions in <section> 'section'
         */
-        const temp = "self" + Date.now().toString();
-        section.id = temp;
         let olList = sectionElement.querySelectorAll(":scope > ol.Instruction, :scope > ul.Instruction");
         //section.id = "";
         if (olList !== null && olList.length !== 0) {
@@ -308,6 +306,7 @@ export class Instructions {
                 console.log(`h${level}: `, sectionName);
                 console.assert(sectionElement.tagName === "SECTION");
                 const section = new Section(sectionName, parent, hc);
+                sectionElement.setAttribute("id", section.id);
                 if (sectionElement.classList.contains("Instruction_Section")) {
                     ISectionParent1 = new Instruction(section.sectionNumber, "", sectionName.trimStart().slice(0, 10) + " ...", Category.SECTION, 'pointFraction' in sectionElement.dataset ? parseInt(sectionElement.dataset.pointFraction) : 0);
                     this.instructions.push(ISectionParent1);
