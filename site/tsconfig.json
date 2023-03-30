@@ -6,7 +6,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "*": ["*.js"] // This mapping is relative to "baseUrl"
+      "*": ["*.js","node_modules"] // This mapping is relative to "baseUrl"
     }
   },
   "exclude": [

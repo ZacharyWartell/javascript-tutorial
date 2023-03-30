@@ -47,19 +47,7 @@
     <div>webgl-tutorial-1</div>
   </div>
     <div class="window-container">      
-      <div class="toolbar" id="Toolbar" >
-        <div class="Menu"> <button id="back">🡰 </button> <button id="forward">🡲
-          </button> <button id="help" onclick='window.open("docs/help.html");'>Help</button>
-          <input name="Instructor_Mode" id="Instructor_Mode" type="checkbox"> <label for="Instructor_Mode">Instructor
-            Mode</label> <button id="fileMenu" disabled="disabled"
-            onclick="document.getElementById('fileSubMenu').hidden=false;">File</button>
-          <ul id="fileSubMenu" class="SubMenu" hidden="">
-            <li> <input id="loadFile" name="loadFile" accept="/html" type="file">
-            </li>
-            <li><button id="save">Save</button></li>
-            <li><button id="exportAll">Download</button></li>
-          </ul>
-        </div>
+     
       </div>
       <div class="main-container">
         <div class="side-nav-bar">
@@ -74,6 +62,20 @@
           </ol>
         </div>        
         <main class="main-content" id="Content">
+          <div class="toolbar" id="Toolbar" >
+            <div class="Menu"> <button id="back">🡰 </button> <button id="forward">🡲
+              </button> <button id="help" onclick='window.open("docs/help.html");'>Help</button>
+              <b>|</b> <input name="Instructor_Mode" id="Instructor_Mode" type="checkbox">  <label for="Instructor_Mode">Instructor
+                Mode</label> <button id="fileMenu" disabled="disabled"
+                onclick="document.getElementById('fileSubMenu').hidden=false;">File</button>
+              <ul id="fileSubMenu" class="SubMenu" hidden="">
+                <li> <input id="loadFile" name="loadFile" accept="/html" type="file">
+                </li>
+                <li><button id="save">Save</button></li>
+                <li><button id="exportAll">Download</button></li>
+              </ul>
+            </div>  
+          </div>        
           <article>
             <h2 class="nocount Title">ITCS <span data-course-number=""></span> :
               JavaScript Tutorial </h2>

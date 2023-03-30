@@ -365,7 +365,7 @@ export function onload() {
      ***  Initialize <table id="RubricTable">
      **/
     //init_rubric();
-    Inst.instructions.extractRubric();
+    Inst.instructions.extractSectionsAndRubricAll();
     //Rubric.main();
 }
 //# sourceMappingURL=ClassAssignmentWartell.js.map
