@@ -6,3 +6,5 @@
 	path = site/git-modules/zjw-generic-instructions
 	url = https://gitlab.com/zwartell/zjw-generic-instructions.git
 	branch = master
+[submodule "git-modules/zjw-generic-instructions"]
+	branch = version2
