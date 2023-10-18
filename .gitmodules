@@ -1,8 +1,4 @@
-[submodule "site/modules/zjwgi"]
-	path = site/modules/zjwgi
-	url = https://gitlab.com/zwartell/zjw-generic-instructions
-	branch = version2
 [submodule "site/git-modules/zjw-generic-instructions"]
 	path = site/git-modules/zjw-generic-instructions
 	url = https://gitlab.com/zwartell/zjw-generic-instructions.git
-	branch = master
+	branch = version2
