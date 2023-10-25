@@ -33,7 +33,7 @@
     import * as Rubric from "./scripts/zjwgi/Rubric.js";
     import * as CAW from "./scripts/zjwgi/ClassAssignmentWartell.js";
     window.BreadCrumb = Rubric.BreadCrumb;
-    CAW.main(150);
+    CAW.main(200);
     
     window.Visibility_Toggle = CAW.Visibility_Toggle; 
     console.log("window.rubricMain");
@@ -108,9 +108,9 @@
       <script type="application/json" id="AssignmentName">
         {
             "AssignmentName" : {
-                "courseNumber" : "3120",
+                "courseNumber" : "5122",
                 "number" : "T3",
-                "numberLongDir" : "3120-t3-javascript-tutorial",
+                "numberLongDir" : "5122-t3-javascript-tutorial",
                 "name" : "javascript-tutorial"
               }   
         }
@@ -170,7 +170,7 @@
             JavaScript Tutorial </h2>
           <h2 class="nocount Title">Fall 2023</h2>
           <h3 class="nocount Title">Professor: Zachary Wartell</h3>
-          <h3 class="nocount Title">Revision: <span class="Revision">Sat Oct 21 21:54:03 2023 -0400</span> <sup> (<a
+          <h3 class="nocount Title">Revision: <span class="Revision">Sat Oct 21 23:34:12 2023 -0400</span> <sup> (<a
                 href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master" target="_blank">git logs</a>)
             </sup><br>
           </h3>
@@ -193,8 +193,7 @@
             <ol>
               <li>Learn subset of fundamentals of JavaScript from MDN resources
                 <!-- (as appropriate for this courses later WebGL assignments). -->
-                <!-- (as appropriate for this courses later D3 assignments).  -->(as
-                appropriate for this courses later WebGL assignments).
+                (as appropriate for this courses later D3 assignments).  
               </li>
               <li>Learn JavaScript debugging facilities within the Chrome Browser.</li>
             </ol>
@@ -321,12 +320,12 @@
           -->
           <section data-point-fraction="95" class="Instruction_Section"><h1 class="Section">JavaScript Tutorial</h1>
             <p><span class="Comment">Canvas Assignment <a target="_blank"
-                  href="https://uncc.instructure.com/courses/146720/assignments/1171030">T3:
-                  JavaScript Tutorial - Overview</a> discusses options available
+                  href="https://uncc.instructure.com/courses/204712/assignments/2013410">T3:
+                  JavaScript Tutorial</a> discusses options available
                 for qualified students who have sufficient JavaScript experience
                 to skip this tutorial by completing the Canvas Survey <a target="_blank"
-                  href="https://uncc.instructure.com/courses/146720/quizzes/272440">T3:
-                  Opt. II: JavaScript Experience Survey</a>.&nbsp;&nbsp; </span></p>
+                  href="https://uncc.instructure.com/courses/204712/assignments/2013411">
+                  T3: Place Out of JavaScript Tutorial</a>.&nbsp;&nbsp; </span></p>
             <!--
         <ul>          <li>If you have no JavaScript experience or very weak experience, you            should complete the entire tutorial for credit and a grade.</li>          <li>If you have strong JavaScript experience, you may skip this            tutorial            <ul>              <li><u>Skipping Instructions</u>:&nbsp; If you do skip the                JavaScript tutorial then you <u>must</u> do the following:                <ol>                  <li>Add to your README.md a brief list and                    description of your prior experience with JavaScript.</li>                  <li>Git commit the README.md</li>                  <li>That is all you have to do.</li>                </ol>              </li>            </ul>          </li>          <li>If given your general programming experience level you feel it is            sufficient to just read the material, without doing the work, you            are encouraged to do so, but you will get not be graded for this            tutorial.</li>        </ul>					-->
             <section><h2 class="Section" id="Grading_Criteria"><strong>Grading Criteria<br>
@@ -369,10 +368,42 @@
                       started with JavaScript" <br>
                       <br>
                     </li>
-                    <li class="Instruction_Read">"Getting started with JavaScript"
-                      - Read just the first two paragraphs, skipping the detailed
-                      sub-parts "Single-line input in the Web Console" and
-                      "Multi-line input in the Web Console"</li>
+                    <li class="Instruction_Read">
+                      <a target="_blank"
+                               class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#getting_started_with_javascript','DMO_JS')" class="external"
+                               rel="noreferrer noopener">"Getting started with JavaScript"<br>
+                            </a>                      
+                      Read just the first introductory paragraphs.
+                      <ol>
+                          <li>
+                            <a target="_blank"
+                               class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#opening_the_console','DMO_JS')" class="external"
+                               rel="noreferrer noopener">"Opening The Console" <br>
+                            </a>
+                            Follow the link and read "Opening the console in Chrome".
+                          </li>
+                          <li>
+                            <a target="_blank"
+                               class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#entering_and_running_javascript','DMO_JS')" class="external"
+                               rel="noreferrer noopener">"Entering and running JavaScript" <br>
+                            </a>
+                            Read this subsection.
+                          </li>
+                          <li>
+                            <a target="_blank"
+                               class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#multi-line_input_in_the_console','DMO_JS')" class="external"
+                               rel="noreferrer noopener">"Multi-line input in the console" <br>
+                            </a>
+                            Skip this section because it only applies to the Firefox Browser.<br>
+                            Instead read about Chrome browser Snippet feature: <a target="_blank"
+                               class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.chrome.com/docs/devtools/javascript/snippets/','DMO_JS')" class="external"
+                               rel="noreferrer noopener">"Run snippets of JavaScript" <br>
+                            </a>
+
+                          </li>
+                      </ol>
+                   </li>
+                   <!--
                     <li class="Instruction_Read">Chrome Snippet Tool:&nbsp;&nbsp;
                       Instead of using the Firefox debugging tools (the detailed
                       sub-parts we skipped over), you will use the Chrome
@@ -382,14 +413,13 @@
                               https://developer.chrome.com/docs/devtools/javascript/snippets/.</a>&nbsp;&nbsp;
                       <br>
                     </li>
+                    -->
                     <li><a
-                        class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#hello_world','DMO_JS')"
-                        target="_blank">Hello World</a> - Return to the MDN doc's
-                      and to the <a
-                        class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#hello_world','DMO_JS')"
-                        target="_blank">Hello World</a>&nbsp;
-                      subsection.&nbsp;&nbsp; While reading this section, do the
-                      following exercise:
+                        class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#multi-line_input_in_the_console','DMO_JS')"
+                        target="_blank">Hello World</a> - Return to the MDN doc's "Multi-line input in the console" sub-section. 
+                        Study the example code and the end of "Multi-line input in the console".
+                        <br>                        
+                       &nbsp;&nbsp; Do the following with this example code:
                       <ol>
                         <li class="Instruction_Todo"><u>Exercise</u>:&nbsp;&nbsp;
                           "Hello World"<br>
@@ -401,12 +431,13 @@
                           List Format of Instructions:<br>
                           <br>
                           <ol>
-                            <li> create a Snippet for the Hello World code</li>
-                            <li>evaluate that snippet on the Console</li>
+                            <li>Create a Snippet for the Hello World code</li>
+                            <li>Copy and Paste the example code at  the end of "Multi-line input in the console" in to this new Chrome Snippet.</li>
+                            <li>Evaluate that snippet on the Console</li>
                             <li class="Instruction_Todo">Save the Console to a log
                               file <span class="File_Name">chapter-1-log.txt</span></li>
-                            <li>verifying the log file using the shell</li>
-                            <li>git commit the Chapter 1 log file with
+                            <li>Verify the log file using the bash shell or your operating systems file explorer.</li>
+                            <li>Git commit the Chapter 1 log file with
                               message:&nbsp;&nbsp; "-exercise chapter-1-log"</li>
                           </ol>
                           <br>
