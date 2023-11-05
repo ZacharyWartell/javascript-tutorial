@@ -5,3 +5,5 @@
 *.bak
 site/*/zjwgi
 scripts/zjwgi
+www-site-mirror/**
+www-site-mirror
