@@ -108,9 +108,9 @@
       <script type="application/json" id="AssignmentName">
         {
             "AssignmentName" : {
-                "courseNumber" : "5122",
-                "number" : "T3",
-                "numberLongDir" : "5122-t3-javascript-tutorial",
+                "courseNumber" : "3120",
+                "number" : "t4",
+                "numberLongDir" : "3120-t4-javascript-tutorial",
                 "name" : "javascript-tutorial"
               }   
         }
@@ -168,7 +168,7 @@
         <div contenteditable="false">
           <h2 class="nocount Title">ITCS <span data-course-number=""></span> :
             JavaScript Tutorial </h2>
-          <h2 class="nocount Title">Fall 2023</h2>
+          <h2 class="nocount Title">Spring 2024</h2>
           <h3 class="nocount Title">Professor: Zachary Wartell</h3>
           <h3 class="nocount Title">Revision: <span class="Revision">Wed Nov 1 11:56:46 2023 -0400</span> <sup> (<a
                 href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master" target="_blank">git logs</a>)
@@ -191,78 +191,56 @@
           <section>
             <h1 class="nocount">Objectives</h1>
             <ol>
-              <li>Learn subset of fundamentals of JavaScript from MDN resources
-                <!-- (as appropriate for this courses later WebGL assignments). -->
-                (as appropriate for this courses later D3 assignments).  
+              <li>Learn subset of fundamentals of JavaScript from MDN resources (as appropriate for this courses later WebGL assignments). 
+                <!-- -->
+                <!-- (as appropriate for this courses later D3 assignments). -->
               </li>
               <li>Learn JavaScript debugging facilities within the Chrome Browser.</li>
             </ol>
           </section>
           <section>
-            <h1 class="Section">Overview</h1>
-            This tutorial requires you read a subset of the "chapters" in the MDN
-            "JavaScript Guide", at <a class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide','DMO_JS')"
-              target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide</a>.&nbsp;&nbsp;
-            We chose a subset of chapters based on what is required to complete
-            the first programming assignment in this course.&nbsp;&nbsp;&nbsp; The
-            MDN JavaScript Guide (abbreviated as "MDN JS Guide"), generally
-            contains few "active learning" sections.&nbsp;&nbsp;&nbsp; <br>
-            <p> Therefore to demonstrate you read the material and hence get
-              credit for this tutorial you will have to: </p>
-            <ul>
-              <li class="Instruction_NonRubric">Read through the MDN JS Guide
-                using the Chrome browser</li>
-              <li class="Instruction_NonRubric">While reading, type in (or copy
-                &amp; paste, etc.) the Guide's code examples into the Chrome
-                Console.
-                <ul>
-                  <li>this lets you try out the code and demonstrates that you
-                    read the material.</li>
-                </ul>
+            <h1 class="Section" id="Tutorial_Structure">Tutorial Structure</h1>
+            <p>This tutorial has 2 parts. The parts are very different in size and complexity and contain alternative options for students with prior knowledge of the Learning Objectives.<br>
+            </p>
+            <ol>                
+              <li><a href="#Part1">Part 1</a> is required. </li>               
+              <li>Part 2: Either Option I or Option II is required<br>
+                <ol>                    
+                  <li>Option I - <a href="#Part2_OptionI">JavaScript Tutorial</a>:&nbsp;&nbsp; This option is for students 
+                    without experience programming in JavaScript.
+                  </li>
+                  <li>Option II - <a href="#Part2_OptionII">Survey of Prior JavaScript Experience</a><br>
+                    This option is for students who already have significant experience programming in JavaScript.
+                  </li>
+                </ol>
               </li>
-              <li class="Instruction_NonRubric">Periodically save the log file
-                from the Chrome Console <u>and</u> git commit the log file
-                <ul>
-                  <li>this records everything you did on the Console and serves as
-                    proof of completing the tutorial </li>
-                  <li>details for doing so are provided later in this document.</li>
-                </ul>
-              </li>
-            </ul>
+            </ol>   
           </section>
-          <section data-point-fraction="5" class="Instruction_Section">
-            <h1 class="Section">Preliminaries</h1>
+          <section data-point-fraction="5" data-optionset='{"name":"Part 1"}' class="Instruction_Section"><h1 class="Section">Part 1: Git Repo Setup</h1>
             <ol class="Instruction">
-              <li class="Instruction_Todo">Create a new remote repository on the
-                Git server called <span class="File_Name">"itcs-<span
-                    data-course-number=""></span>-t3-js-tutorial"</span>.<br>
-                Follow all the standard practices for the course, e.g. remote
-                repository <b> "Private" </b>, Group Invite private group
-                "Reporter" (see "Add Your Private Student Group" in <a
-                  href="https://webpages.charlotte.edu/zwartell/Teaching/Git%20Tutorial/Git%20Tutorial.html#How_to_Create_New_Remote_Repository"
-                  target="_blank">https://webpages.charlotte.edu/zwartell/Teaching/Git%20Tutorial/Git%20Tutorial.html#How_to_Create_New_Remote_Repository)
-                  <br> </a> <br>
-                <br>
+              <span id="cursor"></span>
+              <li class="Instruction_Todo"> <u>Exercise: [Create Remote Repo]</u>                    
+                <div class="Server_Cci_Git"> Create new remote repo on cci-git called,
+                  Create a new remote repo on cci-git called, <span class="File_Name" data-project-number=""></span>-<span class="File_Name" data-project-name-dir=""></span> using the
+                  procedures of <abbr>GT</abbr>: Appendix <a href="https://webpages.charlotte.edu/zwartell/Teaching/Git%20Tutorial/Git%20Tutorial.html#Basic_Git_Operations">Basic
+                    Git Operations.</a>
+                  </div>
               </li>
-              <li class="Instruction_Todo">Now clone your remote repo:<br>
-                <table class="Code_Example" id="Code_Example5" style="width: 1125px;" border="1">
+             <li class="Instruction_Todo">Now clone your remote repo:<br>
+                <table class="Code_Example" id="Code_Example5" style="width: 1125px;">
                   <tbody>
                     <tr>
                       <td><button onclick="Code_Example_Toggle('Code_Example_Example');">▽</button></td>
                       <td>
-                        <div style="height : 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_<span data-course-number=""></span>/</code><br>
+                        <div style="height : 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1 ~/ITCS_<span data-course-number=""></span>/</code><br>
                           <code class="Shell_Code_Input">$git clone
-                            https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/itcs-<span
-        
-                          data-course-number=""></span>-t3-js-tutorial.git
-                        JS_Tutorial</code><span style="color: white;"><span
-                              style="font-family:Courier,monospace;"></span></span><br>
+                            https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/<span class="File_Name" data-project-number=""></span>-<span class="File_Name" data-project-name-dir=""></span>.git
+                          </code><br>
                           <code class="Shell_Code_Output"> Cloning into
-                        'JS_Tutorial'...<br>
-                        warning: You appear to have cloned an empty
-                        repository. <br>
-                      </code>
+                            '<span class="File_Name" data-project-number=""></span>-<span class="File_Name" data-project-name-dir=""></span>'...<br>
+                            warning: You appear to have cloned an empty
+                            repository. <br>
+                          </code>
                         </div>
                       </td>
                     </tr>
@@ -270,13 +248,15 @@
                 </table>
                 <br>
               </li>
-              <li class="Instruction_Todo">Inside the Tutorial <span class="ProgramName">README.md</span>.
-                Add your name on the <u>first</u> line of the file.<br>
+              <li class="Instruction_Todo">Create a file <span class="ProgramName">README.md</span>. Add your name on the <u>first</u> line of the file.<br>
                 <br>
-                Git commit the file with the commit message “initial README.md”
+                Git commit the file with the commit message
+              </li>
+              <li class="Instruction_Git_Commit"><span class="Git_Commit_Message">git commit -m  “initial README.md” .</span> 
               </li>
             </ol>
           </section>
+
           <!--
           <section><h1 class="Section">Chrome JavaScript Debugging Tutorial</h1>
             <ul>
@@ -319,13 +299,39 @@
           </section> 
           -->
           <section data-point-fraction="95" class="Instruction_Section"><h1 class="Section">JavaScript Tutorial</h1>
-            <p><span class="Comment">Canvas Assignment <a target="_blank"
-                  href="https://uncc.instructure.com/courses/204712/assignments/2013410">T3:
-                  JavaScript Tutorial</a> discusses options available
-                for qualified students who have sufficient JavaScript experience
-                to skip this tutorial by completing the Canvas Survey <a target="_blank"
-                  href="https://uncc.instructure.com/courses/204712/assignments/2013411">
-                  T3: Place Out of JavaScript Tutorial</a>.&nbsp;&nbsp; </span></p>
+
+            This tutorial requires you read a subset of the "chapters" in the MDN
+            "JavaScript Guide", at <a class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide','DMO_JS')"
+              target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide</a>.&nbsp;&nbsp;
+            We chose a subset of chapters based on what is required to complete
+            the first programming assignment in this course.&nbsp;&nbsp;&nbsp;                         
+            <p>
+              The MDN JavaScript Guide (abbreviated as "MDN JS Guide"), generally
+              contains few "active learning" sections.&nbsp;&nbsp;&nbsp; <br>
+              Therefore to demonstrate you read the material and hence get
+              credit for this tutorial you will have to: 
+            </p>
+            <ul>
+              <li class="Instruction_NonRubric">Read through the MDN JS Guide
+                using the Chrome browser</li>
+              <li class="Instruction_NonRubric">While reading, type in (or copy
+                &amp; paste, etc.) the Guide's code examples into the Chrome
+                Console.
+                <ul>
+                  <li>this lets you try out the code and demonstrates that you
+                    read the material.</li>
+                </ul>
+              </li>
+              <li class="Instruction_NonRubric">Periodically save the log file
+                from the Chrome Console <u>and</u> git commit the log file
+                <ul>
+                  <li>this records everything you did on the Console and serves as
+                    proof of completing the tutorial </li>
+                  <li>details for doing so are provided later in this document.</li>
+                </ul>
+              </li>
+            </ul>
+                    
             <!--
         <ul>          <li>If you have no JavaScript experience or very weak experience, you            should complete the entire tutorial for credit and a grade.</li>          <li>If you have strong JavaScript experience, you may skip this            tutorial            <ul>              <li><u>Skipping Instructions</u>:&nbsp; If you do skip the                JavaScript tutorial then you <u>must</u> do the following:                <ol>                  <li>Add to your README.md a brief list and                    description of your prior experience with JavaScript.</li>                  <li>Git commit the README.md</li>                  <li>That is all you have to do.</li>                </ol>              </li>            </ul>          </li>          <li>If given your general programming experience level you feel it is            sufficient to just read the material, without doing the work, you            are encouraged to do so, but you will get not be graded for this            tutorial.</li>        </ul>					-->
             <section><h2 class="Section" id="Grading_Criteria"><strong>Grading Criteria<br>
@@ -336,16 +342,16 @@
                   git commit instructions for each chapter.<br>
                 </strong></p>
               <p>Your Console interactions recorded in your log file must show
-                that you tested 90% of the example code in the listed MDN
+                that you tested at least 90% of the example code in the listed MDN
                 chapters.&nbsp;&nbsp; Also, regarding what is recorded in the log
                 file: </p>
               <ul>
                 <li>It is fine (and expected) for some of your coding to generate
                   error messages in the log file. </li>
                 <li>It is fine (and expected) for you to make 'mistakes' when
-                  learning trying out the code example. </li>
-                <li>It is fine (and encouraged) for you to try out extra code
-                  --ideally this experience should feel like 'play'
+                  learning and trying out the code example. 
+                </li>
+                <li>It is fine (and encouraged) for you to try out extra code                  
                   <ul>
                     <li>Keep in mind, however, that your submitted log files are
                       an official assignment, so keep any extra 'play' code
@@ -417,7 +423,7 @@
                     <li><a
                         class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#multi-line_input_in_the_console','DMO_JS')"
                         target="_blank">Hello World</a> - Return to the MDN doc's "Multi-line input in the console" sub-section. 
-                        Study the example code and the end of "Multi-line input in the console".
+                        Study the example code at the end of "Multi-line input in the console".
                         <br>                        
                        &nbsp;&nbsp; Do the following with this example code:
                       <ol>
@@ -437,8 +443,7 @@
                             <li class="Instruction_Todo">Save the Console to a log
                               file <span class="File_Name">chapter-1-log.txt</span></li>
                             <li>Verify the log file using the bash shell or your operating systems file explorer.</li>
-                            <li>Git commit the Chapter 1 log file with
-                              message:&nbsp;&nbsp; "-exercise chapter-1-log"</li>
+                            <li class="Instruction_Git_Commit">add/commit the Chapter 1 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-1-log" .</span> </li>                            
                           </ol>
                           <br>
                           Video Format of Instructions:<br>
@@ -532,9 +537,7 @@
                       save the Console log to a log file <span class="File_Name">chapter-2-log.txt.</span>&nbsp;
                       <br> Verify the log file looks correct using the shell.
                     </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 2"
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 2 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-2-log" .</span> </li>                                                
                   </ol>
                 </li>
                 <li>MDN Chapter <a
@@ -565,8 +568,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-3-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell.</li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 3"</li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 3 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-3-log" .</span> </li>                                                
                   </ol>
                 </li>
                 <li>MDN Chapter <a
@@ -600,8 +602,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-4-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 4"</li>
+                      <li class="Instruction_Git_Commit">add/commit the Chapter 4 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-4-log" .</span> </li>                                                
                   </ol>
                   <a class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration','DMO_JS')"
                     ><br>
@@ -632,8 +633,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-5-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 5" </li>
+                      <li class="Instruction_Git_Commit">add/commit the Chapter 5 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-5-log" .</span> </li>                                                
                   </ol>
                   <a class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions','DMO_JS')" target="_blank"
                     class="external" rel="noreferrer noopener"> <br>
@@ -673,10 +673,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-6-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercise chapter 6"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 6 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-6-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><i><u>Language Comparison</u>:&nbsp; </i>
@@ -723,8 +720,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-7-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 7" </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 7 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-7-log" .</span> </li>                                                
                   </ol>
                   <br>
                 </li>
@@ -774,10 +770,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-9-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 9"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 9 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-9-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><i><u>Language Comparison</u>:&nbsp;</i>
@@ -824,8 +817,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-10-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 10"</li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 10 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-10-log" .</span> </li>                                                
                   </ol>
                   <a class="WindowOpenLeft" onclick="windowOpenLeft('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections','DMO_JS')"
                     > <br>
@@ -874,10 +866,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-12-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 12"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 12 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-12-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><em>Language Comparison</em>:<br>
@@ -924,10 +913,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-13-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 13"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 13 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-13-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><em>Language Comparison</em>:<br>
@@ -983,10 +969,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-14-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 14"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 14 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-14-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><em>JavaScript Evolution Notes</em>:</li>
@@ -1019,10 +1002,7 @@
                     <li class="Instruction_Todo">Save the Console to a log file <span
                         class="File_Name">chapter-15-log.txt.&nbsp;</span>&nbsp; <br>
                       Verify the log file looks roughly correct using the shell. </li>
-                    <li class="Instruction_Todo">Git commit this chapters log
-                      file(s) with the message "-exercises chapter 14"<br>
-                      <br>
-                    </li>
+                    <li class="Instruction_Git_Commit">add/commit the Chapter 15 log file <span class="Git_Commit_Message">git commit -m "-exercise chapter-15-log" .</span> </li>                                                
                   </ol>
                   <ul>
                     <li class="Instruction_NonRubric"><em>Language Comparison</em>::</li>
@@ -1114,10 +1094,7 @@
                             &nbsp;</span>&nbsp; <br>
                           Verify the log file looks correct using the shell. <br>
                         </li>
-                        <li class="Instruction_Todo">Git commit this chapters log
-                          file(s) with the message "-completed exercises using
-                          promising"<br>
-                        </li>
+                        <li class="Instruction_Git_Commit">add/commit the files <span class="Git_Commit_Message">git commit -m "-completed exercises using promises" .</span> </li>                                                
                       </ol>
                     </li>
                   </ol>
@@ -1142,7 +1119,7 @@
                           and <a download="" href="exercises/using%20promises/using-promises.js">
                             <span class="File_Name">using-promises.js</span></a>
                           into this directory <br>
-                        </li>
+                        </li>                        
                         <li class="Instruction_Git_Commit">Git commit this with
                           the message "-Exercise: async-await copied initial
                           files"</li>
@@ -1167,8 +1144,7 @@
                           new case 5 async-await code products the same behavior
                           on the Console and in the drawing program as the case 4
                           Promise code. </li>
-                        <li class="Instruction_Todo"> Git commit with the message
-                          "-Exercise: async-await completed </li>
+                        <li class="Instruction_Git_Commit">add/commit the files <span class="Git_Commit_Message">git commit -m "-exercise: async-await completed" .</span> </li>                                                                        
                       </ol>
                     </li>
                   </ol>
