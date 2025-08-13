@@ -9,17 +9,17 @@
   <script type="importmap">
     {
       "imports": {
-        "zjw-generic-instructions/": "./git-modules/zjw-generic-instructions/Site Root/"
+        "zjw-generic-instructions/": "./modules/zjw-generic-instructions"
       }
     }
   </script>  
   <!--
   <link href="git-modules/zjw-generic-instructions/Site Root/libs/toc.css" rel="stylesheet" type="text/css">
   -->
-  <link href="css/zjwgi/ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
-  <link href="css/zjwgi/GUI.css" rel="stylesheet" type="text/css">
-  <link href="css/zjwgi/generic_instructions.css" rel="stylesheet" type="text/css">
-  <link media="print" href="css/zjwgi/generic_instructions-print.css" rel="stylesheet" type="text/css">
+  <link href="modules/zjwgi/cssClassAssignmentWartell.css" rel="stylesheet" type="text/css">
+  <link href="modules/zjwgi/cssGUI.css" rel="stylesheet" type="text/css">
+  <link href="modules/zjwgi/cssgeneric_instructions.css" rel="stylesheet" type="text/css">
+  <link media="print" href="modules/zjwgi/cssgeneric_instructions-print.css" rel="stylesheet" type="text/css">
   <script type="application/json" class="js-hypothesis-config">
         {
             "openSidebar": false
@@ -28,10 +28,10 @@
   <!--      
     <script src="https://hypothes.is/embed.js" async=""></script>      -->
   <!-- <script src="git-modules/zjw-generic-instructions/Site Root/libs/jquery-3.5.1.min.js"></script> -->
-  <script src="scripts/zjwgi/generic_instructions.js"></script>
+  <script src="modules/zjwgi/scripts/generic_instructions.js"></script>
   <script type="module" lang="javascript">
-    import * as Rubric from "./scripts/zjwgi/Rubric.js";
-    import * as CAW from "./scripts/zjwgi/ClassAssignmentWartell.js";
+    import * as Rubric from "./modules/zjwgi/scripts/Rubric.js";
+    import * as CAW from "./modules/zjwgi/scripts/ClassAssignmentWartell.js";
     window.BreadCrumb = Rubric.BreadCrumb;
     CAW.main(200);
     
