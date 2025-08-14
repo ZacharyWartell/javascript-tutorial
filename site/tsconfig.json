@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    /* "module": "commonjs", */
-    "target": "es2019",
+    "target": "es2020",
+    "module": "es2020",
     "sourceMap": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "*": ["*.js","node_modules"] // This mapping is relative to "baseUrl"
-    }
+    "skipLibCheck": true,
+    "strict": false,
+    "paths":{
+        "ZxW_MVC": ["./modules/zxw-mvc/ZxW_MVC"],
+        "ZxW_GUI": ["./modules/zxw-mvc/ZxW_GUI"],
+        "ZxW_TabContainer": ["./modules/zxw-mvc/ZxW_TabContainer"],
+        "ZxW_Annotation": ["./modules/zxw-mvc/ZxW_Annotation"],
+        "ZxW_Toolbar": ["./modules/zxw-mvc/ZxW_Toolbar"],
+        "ZxW_TextEditor": ["./modules/zxw-mvc/ZxW_TextEditor"]
+      }
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "scripts/zjwgi/Rubric.ts",
-    "scripts/zjwgi/ClassAssignmentWartell.ts",
-    "scripts/zjwgi/GradingScript.ts",
-    "scripts/zjwgi/Rubric.ts"
+    "./modules/zjwgi/scripts/Rubric.ts",
+    "./modules/zjwgi/scripts/ClassAssignmentWartell.ts",
+    "./modules/zjwgi/scripts/GradingScript.ts",
+    "./modules/zjwgi/scripts/Rubric.ts"
   ],
 }
