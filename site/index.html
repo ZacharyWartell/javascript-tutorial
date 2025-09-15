@@ -28,10 +28,10 @@
   <!--
   <link href="git-modules/zjw-generic-instructions/Site Root/libs/toc.css/" rel="stylesheet" type="text/css/">
   -->
-  <link rel="stylesheet" type="text/css" href="./modules/zjwgi/css/ClassAssignmentWartell.css">
-  <link rel="stylesheet" type="text/css" href="./modules/zjwgi/css/GUI.css">
-  <link rel="stylesheet" type="text/css" href="./modules/zjwgi/css/generic_instructions.css">
-  <link rel="stylesheet" type="text/css" media="print" href="./modules/zjwgi/css/generic_instructions-print.css">
+  <link rel="stylesheet" type="text/css" href="./modules/zjw-generic-instructions/css/ClassAssignmentWartell.css">
+  <link rel="stylesheet" type="text/css" href="./modules/zjw-generic-instructions/css/GUI.css">
+  <link rel="stylesheet" type="text/css" href="./modules/zjw-generic-instructions/css/generic_instructions.css">
+  <link rel="stylesheet" type="text/css" media="print" href="./modules/zjw-generic-instructions/css/generic_instructions-print.css">
   <!--    
     <script type="application/json" class="js-hypothesis-config">
         {
@@ -39,13 +39,13 @@
         }
     </script>  
     <script src="https://hypothes.is/embed.js" async=""></script>      -->
-  <script src="./modules/zjwgi/scripts/generic_instructions.js"></script>
+  <script src="./modules/zjw-generic-instructions/scripts/generic_instructions.js"></script>
 
   <!-- <script src="git-modules/zjw-generic-instructions/Site Root/libs/jquery-3.5.1.min.js"></script> -->
   <script type="module" lang="javascript">
     import * as ZxW_GUI from "ZxW_GUI";
-    import * as Rubric from "./modules/zjwgi/scripts/Rubric.js";
-    import * as CAW from "./modules/zjwgi/scripts/ClassAssignmentWartell.js";
+    import * as Rubric from "./modules/zjw-generic-instructions/scripts/Rubric.js";
+    import * as CAW from "./modules/zjw-generic-instructions/scripts/ClassAssignmentWartell.js";
     class App extends ZxW_GUI.DefaultApplication {
       constructor() { super(); }
     }
@@ -123,22 +123,22 @@
     </div>          
     <div class="main-content" id="Content">
       <div class="toolbar" id="Toolbar">
-        <div class="Menu"> <button id="help" class="DocButton" onclick='window.open("html/zjwgi/Help.html");'> Help </button> <b>|</b>
+        <div class="Menu"> <button id="help" class="DocButton" onclick='window.open("html/zjw-generic-instructions/Help.html");'> Help </button> <b>|</b>
           <div class="DocButton"> <input name="Beta_Mode" id="Beta_Mode" type="checkbox"> <label for="Beta_Mode">Beta Mode</label> </div>
           <div id="BetaModeGUI" style="display:inherit;">
             <div class="DocButton"> <button id="Question" class="DocButton" disabled="true">Q&amp;A</button> <span>Post question on <br>
-                selected text <a target="_blank" href="html/zjwgi/Help.html#DocButton_Question">(more)</a> </span> </div>
+                selected text <a target="_blank" href="html/zjw-generic-instructions/Help.html#DocButton_Question">(more)</a> </span> </div>
             <b>|</b>
             <div class="DocButton"> <button id="GoogleGroupButton" class="DocButton" disabled="true" onclick="window.open('https://groups.google.com/a/uncc.edu/g/computer-graphics-wartell-group','_blank')">Google
                 Group</button> <span>Open tab with class Google Group <br>
-                <!-- <a target="_blank" href="html/zjwgi/help.html#DocButton_Question">(more)</a> --> </span> 
+                <!-- <a target="_blank" href="html/zjw-generic-instructions/help.html#DocButton_Question">(more)</a> --> </span> 
             </div>
             <!--
             <b>||</b>
-            <div class="DocButton"> <button id="back" class="DocButton" disabled="true">🡰</button> <span>Navigate Back <a href="html/zjwgi/help.html#DocButton_back"></a>
+            <div class="DocButton"> <button id="back" class="DocButton" disabled="true">🡰</button> <span>Navigate Back <a href="html/zjw-generic-instructions/help.html#DocButton_back"></a>
               </span> 
             </div>
-            <div class="DocButton"> <button id="forward" class="DocButton" disabled="true">🡲</button> <span>Navigate Forward <a href="html/zjwgi/help.html#DocButton_forward"></a>
+            <div class="DocButton"> <button id="forward" class="DocButton" disabled="true">🡲</button> <span>Navigate Forward <a href="html/zjw-generic-instructions/help.html#DocButton_forward"></a>
               </span> 
             </div>
             -->
@@ -163,7 +163,7 @@
     </div>      
     <!--
       most external site will refuse to connect via an iframe, therefore I went with the windowOpenLeft() solution.
-      <div class="side-read-bar">          <iframe src="https://developer.mozilla.org/en-US/html/zjwgi/Web/JavaScript/Guide/Expressions_and_Operators">          </iframe>        </div>                      -->
+      <div class="side-read-bar">          <iframe src="https://developer.mozilla.org/en-US/html/zjw-generic-instructions/Web/JavaScript/Guide/Expressions_and_Operators">          </iframe>        </div>                      -->
   </div>
 </body>
  <template id="SectionRubricTemplate" data-version="1.0">
