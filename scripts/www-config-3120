@@ -1,6 +1,0 @@
-# www-config file (used by zjwgi/publishWWW) for https://gitlab.com/zwartell/javascript-tutorial.git project
-ftphost webpages.uncc.edu
-ftpdir 'public_html/Teaching/ITCS 3120 - JavaScript Tutorial'
-#         Teaching/ITCS 3120 - JavaScript Tutorial/ITCS%203120%20-%20JavaScript%20Tutorial.html
-ftpuser zwartell
-htmlfile ./ITCS 3120 - JavaScript Tutorial.html
