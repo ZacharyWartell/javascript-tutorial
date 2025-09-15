@@ -10,3 +10,7 @@
 	path = git-modules/zxw-mvc.git
 	url = https://gitlab.com/zachary-wartell/zxw-mvc.git
 	branch = master
+[submodule "git-modules/zxw-git-modules.git"]
+	path = git-modules/zxw-git-modules.git
+	url = https://gitlab.com/zachary-wartell-public/zxw-git-modules.git
+	branch = main
