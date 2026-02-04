@@ -1,3 +1,4 @@
-Gradable JavaScript tutorial completely based on readings from Mozilla Developer Network. 
+Gradable JavaScript tutorial with exportable "checkbox" rubric based on readings from Mozilla Developer Network.
 
-WWW: ttps://zwartell.gitlab.io/javascript-tutorial/
+WWW: https://webpages.charlotte.edu/%7Ezwartell/Teaching/javascript-tutorial/
+Git: https://github.com/ZacharyWartell/javascript-tutorial
