@@ -18,3 +18,6 @@
 	path = git-modules/zjw-generic-instrutions.git
 	url = git@github.com:ZacharyWartell/zjw-generic-instructions.git
 	branch = version4
+[submodule "git-modules/zxw-env.git"]
+	path = git-modules/zxw-env.git
+	url = git@github.com:ZacharyWartell/zxw-env.git
