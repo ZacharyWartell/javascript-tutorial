@@ -16,3 +16,4 @@
 [submodule "git-modules/zjw-generic-instrutions.git"]
 	path = git-modules/zjw-generic-instrutions.git
 	url = git@github.com:ZacharyWartell/zjw-generic-instructions.git
+	branch = master
