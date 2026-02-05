@@ -13,3 +13,7 @@
 [submodule "git-modules/zxw-env.git"]
 	path = git-modules/zxw-env.git
 	url = git@github.com:ZacharyWartell/zxw-env.git
+[submodule "git-modules/zjw-generic-instructions.git"]
+	path = git-modules/zjw-generic-instructions.git
+	url = git@github.com:ZacharyWartell/zjw-generic-instructions.git
+	branch = master
