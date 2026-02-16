@@ -2,11 +2,11 @@
 */
 {
     "name": "JavaScript Tutorial",
-    "version": "3.1.128",
+    "version": "3.1.130",
     "short_name": "JavaScript Tutorial",
     "author": "Zachary Wartell",
-    //"start_url":"http://127.0.0.1:5502/www-site/index.html",
-    "start_url":"https://webpages.charlotte.edu/~zwartell/Teaching/javascript-tutorial/index.html",
+    //"start_url":"https://127.0.0.1:8080",
+    "start_url":"https://webpages.charlotte.edu/%7Ezwartell/Teaching/javascript-tutorial",
     "display":"standalone",
     "description" : "",
     "icons": [
