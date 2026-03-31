@@ -49,11 +49,8 @@
 
     //const DEV_BUILD = true;
     const DEV_BUILD=false;
-
-    class App extends ZxW_GUI.DefaultApplication {
-      constructor() { super(); }
-    }
-    let app = new App()
+    
+    let app = new CAW.App()
     await ZxW_GUI.DefaultApplication.fetchUserDocument(app, "javascript-tutorial.zxw-doc.html");
 
     window.BreadCrumb = Rubric.BreadCrumb;
